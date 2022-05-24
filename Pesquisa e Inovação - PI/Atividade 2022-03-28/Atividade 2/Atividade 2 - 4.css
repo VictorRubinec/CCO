@@ -1,0 +1,80 @@
+.A {
+    background-color: rgb(192, 110, 63);
+    border: 15px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: fit-content;
+}
+
+    .B {    
+        background-color: white;
+        height: fit-content;
+        border: 15px solid rgb(0, 0, 73);
+        padding: 55px;
+    }
+
+    .B p {
+        
+        font-family: Arial;
+        color: blue;
+        font-weight: bolder;
+        font-size: 25px;
+    }
+
+.C{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+    .D{
+        background-color: blue;
+        width: 70%;
+        height: 40px;
+    }
+
+    .E{
+        background-color: purple;
+        width: 40%;
+        height: 40px;
+    }
+
+    .F{
+        background-color: green;
+        width: 60%;
+        height: 40px;
+    }
+
+    .G {
+        background-color: yellow;
+        width: 50%;
+        height: 40px;
+    }
+
+.H{
+    display: flex;
+}
+
+    .I {
+        background-color: red;
+        width: 40%;
+        height: 40px;
+    }
+
+    .J {
+        background-color:cadetblue;
+        width: 25%;
+        height: 40px;
+    }
+
+    .K {
+        background-color:lawngreen;
+        width: 35%;
+        height: 40px;
+    }

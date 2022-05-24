@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista 6 - ex6</title>
+</head>
+
+<body>
+
+    Digite o valor da renda mensal da família:
+    <input id="v_renda">
+    
+    <br>
+
+    Digite o valor da parcela:
+    <input id="v_parcela">
+
+    <br><br>
+
+    <button onclick="verificar()">Verificar financiamento</button>
+    
+    <br><br>
+
+    <span id="span_resul"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    var por_r = 0;
+
+    function verificar() {
+
+        por_r = (v_parcela.value / v_renda.value) * 100;
+
+        span_resul.innerHTML = `A prestação corresponde a ${por_r.toFixed(1)}% da renda familiar`;
+
+        if (por_r > 30){
+
+            span_resul.innerHTML += `<br><b style="color:red">Será necessário complementar a renda familiar</b>   `;
+
+        }
+
+    }
+
+</script>

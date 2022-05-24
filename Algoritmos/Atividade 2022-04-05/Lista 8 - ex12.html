@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 8 - ex12</title>
+</head>
+
+<body>
+
+    Você já clicou <span id="span_resul">0</span> vezes
+
+    <br><br>
+
+    <button onclick="f_calcular()">Clica neu</button>
+
+    <br><br>
+
+    <span id="span_mens"></span>
+
+</body>
+
+</html>
+
+<script>
+
+
+    var v_total = 0;
+
+    function f_calcular() {
+
+        v_total = v_total + 1;
+
+        span_resul.innerHTML = `${v_total}`;
+
+        if (v_total < 5) {
+
+            span_mens.innerHTML = "Dedo fraquinho, hein";
+        } else {
+
+            if (v_total <= 10) {
+
+                span_mens.innerHTML = "Dedo bom, mano";
+            } else {
+
+                if (v_total <= 15) {
+
+                    span_mens.innerHTML = "Gosta de clicar, hein!";
+                } else {
+
+                    span_mens.innerHTML = "Eita dedo nervoso";
+                }
+            }
+        }
+
+    }
+
+</script>

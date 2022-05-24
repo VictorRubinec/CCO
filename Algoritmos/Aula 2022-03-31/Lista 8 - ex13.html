@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-be">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 8 - ex13</title>
+</head>
+
+<body>
+
+    <h1>Valor Guardado: R$<span id="span_saldo">0.00</span></h1>
+
+    <div id="div1_mens"></div>
+    <div id="div2_mens"></div>
+
+    <br><br>
+
+    <button onclick="f_5()">Guardar R$5.00</button>
+    <button onclick="f_10()">Gastar R$10.00</button>
+
+</body>
+
+</html>
+
+<script>
+
+    var v_saldo = 0;
+
+    function f_5() {
+
+        v_saldo = v_saldo + 5;
+
+        span_saldo.innerHTML = `${v_saldo.toFixed(2)}`;
+
+        if (v_saldo < -20) {
+
+            div2_mens.innerHTML = `Quase um Corinthias!`;
+
+        } else {
+
+            if (v_saldo < 0) {
+
+                div1_mens.innerHTML = `<span style='color:red'>Finanças em perigo!</span>`;
+                div2_mens.innerHTML = ``;
+
+            } else {
+
+                if (v_saldo > 100) {
+
+                    div2_mens.innerHTML = `#ostentação`;
+
+                } else {
+
+                    div1_mens.innerHTML = `<span style='color:blue'>Finanças OK!</span>`;
+                    div2_mens.innerHTML = ``;
+
+                }
+            }
+        }
+    }
+
+    function f_10() {
+
+        v_saldo = v_saldo - 10;
+
+        span_saldo.innerHTML = `${v_saldo.toFixed(2)}`;
+
+        if (v_saldo < -20) {
+
+            div2_mens.innerHTML = `Quase um Corinthias!`;
+
+        } else {
+
+            if (v_saldo < 0) {
+
+                div1_mens.innerHTML = `<span style='color:red'>Finanças em perigo!</span>`;
+                div2_mens.innerHTML = ``;
+
+            } else {
+
+                if (v_saldo > 100) {
+
+                    //div1_mens.innerHTML = `<span style='color:blue'>Finanças OK!</span>`;
+                    div2_mens.innerHTML = `#ostentação`;
+                } else {
+
+                    div1_mens.innerHTML = `<span style='color:blue'>Finanças OK!</span>`;
+                    div2_mens.innerHTML = ``;
+                }
+            }
+        }
+    }
+</script>

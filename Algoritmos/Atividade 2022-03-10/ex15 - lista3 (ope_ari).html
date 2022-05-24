@@ -1,0 +1,32 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex15 - lista3 (ope_ari)</title>
+</head>
+
+<body>
+
+    Digite a quantidade de moedas para cada filho:
+    <br>
+    <input id="moedas_h" placeholder="Huguinho">
+    <input id="moedas_z" placeholder="Zezinho">
+    <input id="moedas_l" placeholder="Luizinho">
+    <br><br>
+    <button onclick="moedas()">Calcule</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function moedas(){
+        alert(`O Huguinho economizou R$${moedas_h.value * 0.5} pois fez ${moedas_h.value} depósitos`);
+        alert(`O Zezinho economizou R$${moedas_z.value * 0.5} pois fez ${moedas_z.value} depósitos`);
+        alert(`O Luizinho economizou R$${moedas_l.value * 0.5} pois fez ${moedas_l.value} depósitos`);
+    }
+
+</script>

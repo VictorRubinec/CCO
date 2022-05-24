@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista 7 - ex8</title>
+</head>
+
+<body>
+
+    Digite a quantidade de pessoas em um elevador: <br>
+    <input id="id_mulher" placeholder="n° de mulheres">
+    <input id="id_homem" placeholder="n° de homens">
+
+    <br><br>
+
+    <button onclick="calcular()">Ligar elevador</button>
+
+    <br><br>
+
+    <span id="span_resul"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    var homem = 0, mulher = 0, total = 0;
+
+    function calcular() {
+
+        homem = id_homem.value * 90;
+        mulher = id_mulher.value * 70;
+
+        total = homem + mulher;
+
+        if (total < 500){
+
+            span_resul.innerHTML = `<span style='color:green'>O elevador vai se mover, pois está com ${total}kg. </span>`;
+        
+        } else {
+
+            span_resul.innerHTML = `<span style='color:red'> Alguém precisa descer. Precisa perder ${total - 499}kg para mover o elevador. </span>`;
+            
+        }
+
+    }
+
+</script>

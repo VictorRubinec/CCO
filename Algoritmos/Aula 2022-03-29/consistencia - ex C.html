@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>consistencia - ex C</title>
+</head>
+
+<body>
+
+    Digite seu nome: <br>
+    <input id="inp_nome">
+
+    <br><br>
+
+    Digite sua idade: <br>
+    <input id="inp_idade">
+
+    <br><br>
+
+    <button onclick="func_cadastrar()">Cadastrar</button>
+    <button onclick="func_encerrar()">Encerrar</button>
+
+    <br><br>
+
+    <div id="div_mens"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var qtd_aluno = 0;
+
+    function func_cadastrar() {
+
+        var nome = inp_nome.value, idade = inp_idade.value;
+
+        if (nome == "") {
+
+            alert(`Erro: Nome inválido`);
+        } else {
+
+            if (idade <= 0) {
+
+                alert(`Erro: Idade inválida`);
+            } else {
+
+                if (idade > 80) {
+
+                    alert(`Erro: Procurar escola especial`);
+                } else {
+
+                    if (idade < 18) {
+
+                        alert(`Este aluno tem que aguardar ${18 - idade} anos para tirar a CNH`);
+                    }
+
+                    qtd_aluno++;
+
+                    div_mens.innerHTML += `<b>${qtd_aluno}°- </b> ${nome}, ${idade} anos <br>`;
+                }
+            }
+        }
+    }
+
+    function func_encerrar() {
+
+        alert(`Total de alunos cadastrados: ${qtd_aluno}`);
+
+        div_mens.innerHTML = "";
+        qtd_aluno = 0;
+
+        inp_idade.value = "";
+        inp_nome.value = "";
+    }
+
+</script>

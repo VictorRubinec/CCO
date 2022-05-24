@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex7 - lista3 (ope_ari)</title>
+</head>
+
+<body>
+    Digite seu nome:
+    <br>
+    <input id="nome">
+
+    <br><br>
+
+    Digite suas Notas:
+    <br>
+    <input id="nota_c" placeholder="Nota da continuada">
+    <input id="nota_s" placeholder="Nota da semestral">
+
+    <br><br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <br><br>
+
+    <div id="div_mens"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+        // div_mens.innerHTML = ((nota_c.value * 0.4) + (nota_s.value * 0.6)) //aspas
+        div_mens.innerHTML = `<b>A média de ${nome.value} é de ${Number(nota_c.value * 0.4) + Number(nota_s.value * 0.6)} </b>`; // crase
+    }
+
+</script>

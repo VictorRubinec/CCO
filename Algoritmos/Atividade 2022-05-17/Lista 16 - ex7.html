@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 16 - ex7</title>
+</head>
+
+<body>
+
+    Digite o nome do Filme: <br>
+    <input id="ipt_filme">
+
+    <br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+    var vet_cor = ['blue', 'red'],
+        v_cor = 0;
+
+    function cadastrar() {
+
+        if (ipt_filme.value == '') {
+
+            alert('Campo vazio');
+        } else {
+
+            div_resul.innerHTML += `<span style='color:${vet_cor[v_cor]}'>${ipt_filme.value}</span> <br>`
+
+            ipt_filme.value = '';
+            ipt_filme.focus();
+
+            if (v_cor == 1) {
+
+                v_cor = 0;
+            } else {
+
+                v_cor++;
+            }
+        }
+    }
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista 6 - ex2</title>
+</head>
+
+<body>
+
+    Quantas latinhas de refri você toma por dia: <br>
+    <input id="qtd_r">
+    <br><br>
+    <button onclick="confirmar()">Quantos refris?</button>
+    <br><br>
+    <span id="span_resul"> </span>
+
+</body>
+
+</html>
+
+<script>
+
+    function confirmar() {
+        var refri = qtd_r.value * 365;
+
+        span_resul.innerHTML = `Por ano, você consome em média ${refri} latinhas de refri.`;
+
+        if (refri >= 500) {
+
+            span_resul.innerHTML += `<br>Cuidado com a diabetes!.`;
+
+        }
+    }
+
+</script>

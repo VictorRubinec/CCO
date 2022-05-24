@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC3_1CCO</title>
+</head>
+
+<body>
+    <h2>Hideo Morangos</h2>
+    Entre com a temperatura da estufa: <input id="ipt_temp">
+    <button onclick="cadastrar()">Registrar</button> <br><br>
+
+    Entre com o número de uma ocorrência: <input id="ipt_ocor">
+    <button onclick="verificar()">Verificar</button> <br>
+    <div id="div_ocor"></div><br><br>
+
+    Intervalo de ocorrências para análise
+    <input id="ipt_ocor_de"> <input id="ipt_ocor_ate">
+    <button onclick="ocorrencias()">Analisar Ocorrências</button> <br>
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+    var vet_temp = [];
+
+    function cadastrar() {
+
+        var v_temp = Number(ipt_temp.value);
+
+        if (v_temp == '') {
+
+            alert('Campo vazio, digite um valor');
+        } else if (v_temp < 10) {
+
+            alert('Ligar urgente os aquecedores');
+        } else if (v_temp >= 15 && v_temp <= 25) {
+
+            alert('Perfeito!!! Temperatura dentro do intervalo ideal');
+            vet_temp.push(v_temp);
+        } else if (v_temp > 30) {
+
+            alert('“Ligar urgente os resfriadores');
+        } else if (v_temp >= 10 && v_temp <= 30) {
+
+            vet_temp.push(v_temp);
+        } else {
+
+            alert('Digite um número');
+        }
+
+        ipt_temp.value = '';
+    }
+
+    function verificar() {
+
+        var v_oco = Number(ipt_ocor.value);
+
+        if (v_oco == '') {
+
+            alert('Campo vazio, digite um valor');
+        } else if (v_oco <= 0) {
+
+            alert(`Digite um valor acima de zero`);
+        } else if (v_oco > vet_temp.length) {
+
+            div_ocor.innerHTML = `A ocorrência <b>${v_oco}</b> não foi registrada`;
+        } else if (v_oco <= vet_temp.length) {
+
+            div_ocor.innerHTML =
+                `Na ocorrência <b>${v_oco}</b> a temperatura registrada é <b>${vet_temp[v_oco-1]}°</b>`;
+        } else {
+            alert('Digite um número');
+        }
+
+        ipt_ocor.value = '';
+    }
+
+    function ocorrencias() {
+
+        var v_oco_de = Number(ipt_ocor_de.value),
+            v_oco_ate = Number(ipt_ocor_ate.value),
+            v_menor = 999,
+            v_maior = -1,
+            v_qtde = 0,
+            v_soma = 0,
+            v_media = 0;
+
+        div_msg.innerHTML = '';
+
+        if (v_oco_de == '' || v_oco_ate == '') {
+
+            alert('Algum campo vazio, digite um valor');
+        } else if (v_oco_de >= v_oco_ate) {
+
+            alert('Informar o intervalo de ocorrências corretamente');
+        } else if (v_oco_de > vet_temp.length || v_oco_ate > vet_temp.length || vet_temp.length == 0) {
+
+            alert('Antes de Analisar faça o cadastro das temperaturas”');
+        } else {
+
+            for (var i = v_oco_de; v_oco_ate >= i; i++) {
+
+                div_msg.innerHTML +=
+                    `A <b>${i}ª</b> ocorrência tem registrada a temperatura <b>${vet_temp[i - 1].toFixed(1)}</b> <br>`;
+
+                if (vet_temp[i - 1] > v_maior) {
+
+                    v_maior = vet_temp[i - 1];
+                }
+
+                if (vet_temp[i - 1] < v_menor) {
+
+                    v_menor = vet_temp[i - 1];
+                }
+
+                v_qtde++;
+                v_soma += vet_temp[i - 1];
+            }
+
+            v_media = v_soma / v_qtde;
+
+            div_msg.innerHTML +=
+                `<br><b>Resumo do intervalo de ocorrências</b> <br><br>
+                Inicial: <b>${v_oco_de}</b> Final: <b>${v_oco_ate}</b> <br>
+                Menor Temperatura do intervalo: <b>${v_menor.toFixed(1)}</b> <br>
+                Maior Temperatura do intervalo: <b>${v_maior.toFixed(1)}</b> <br>
+                Qtde de temperaturas cadastradas no intervalo: <b>${v_qtde}</b> <br>
+                Média das Temperaturas do intervalo: <b>${v_media.toFixed(1)}</b>`;
+        }
+
+        ipt_ocor_de.value = '';
+        ipt_ocor_ate.value = '';
+    }
+</script>

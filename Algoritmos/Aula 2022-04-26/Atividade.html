@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+</head>
+
+<body>
+
+    <div id="div_abrir">
+
+        Digite a quantidade de Etanol(litros) no tanque: <br>
+        <input id="ipt_etanol" placeholder="Ex:(370.15)">
+
+        <br><br>
+
+        Digite a quantidade de Gasolina(litros) no tanque: <br>
+        <input id="ipt_gasolina" placeholder="Ex:(440.90)">
+
+        <br><br>
+
+        <button onclick="abrir()">Abrir Posto</button>
+
+    </div>
+
+    <div id="div_vendas" style="display: none;">
+
+        Digite a quantidade de combustível vendido: <br>
+        <input id="ipt_vendas" placeholder="Ex:(24.20)">
+
+        <br><br>
+
+        <select id="sel_tipo">
+            <option selected disabled>-Selecione-</option>
+            <option value="1">Etanol</option>
+            <option value="2">Gasolina</option>
+        </select>
+
+        <br><br>
+
+        <button onclick="registrar()">Registrar Vendas</button>
+        <button onclick="encerrar()">Encerrar Turno</button>
+
+        <br>
+
+        <div id="div_mens"></div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var v_etanol = 0,
+        v_etanol_saldo = 0,
+        v_gasolina = 0,
+        v_gasolina_saldo = 0,
+        v_combustivel = '',
+        v_vendas = 0,
+        v_tipo = 0
+        v_gasolina_vendida = 0,
+        v_etanol_vendida = 0,
+        v_qtd_vendas_etanol = 0,
+        v_qtd_vendas_gasolina = 0;
+
+    function abrir() {
+
+        v_etanol = Number(ipt_etanol.value);
+        v_gasolina = Number(ipt_gasolina.value);
+
+        var val_menor = v_etanol < 300 || v_gasolina < 200,
+            val_meio = v_etanol >= 300 && v_etanol <= 3000 || v_gasolina >= 200 && v_gasolina <= 2000;
+
+        if (val_menor) {
+
+            if (v_etanol < 300 && v_gasolina < 200) {
+
+                v_combustivel = 'Etanol e Gasolina'
+            } else if (v_etanol < 300) {
+
+                v_combustivel = 'Etanol'
+            } else {
+
+                v_combustivel = 'Gasolina'
+            }
+
+            alert(`ERRO - Com esse volume de ${v_combustivel} não dá para abrir o posto`);
+
+        } else if (val_meio) {
+
+            var val_meio_etanol = v_etanol >= 300 && v_etanol <= 3000,
+                val_meio_gasolina = v_gasolina >= 200 && v_gasolina <= 2000;
+
+            if (val_meio_etanol && val_meio_gasolina) {
+
+                v_combustivel = 'Etanol e Gasolina'
+            } else if (val_meio_etanol) {
+
+                v_combustivel = 'Etanol'
+            } else {
+
+                v_combustivel = 'Gasolina'
+            }
+
+            alert(`AVISO - Chame o reabastecimento de ${v_combustivel}`);
+
+            div_abrir.style.display = 'none';
+            div_vendas.style.display = 'block';
+
+        } else {
+
+            div_abrir.style.display = 'none';
+            div_vendas.style.display = 'block';
+        }
+
+        v_etanol_saldo = v_etanol;
+        v_gasolina_saldo = v_gasolina;
+    }
+
+    function registrar() {
+
+        v_vendas = Number(ipt_vendas.value),
+        v_tipo = Number(sel_tipo.value);
+
+        if (v_tipo == 1) {
+
+            if (v_vendas > v_etanol_saldo) {
+
+                alert('Quantidade de vendas maior que o saldo do tanque');
+            } else {
+
+                v_etanol_saldo = v_etanol_saldo - v_vendas;
+                v_etanol_vendida = v_etanol_vendida + v_vendas;
+                v_qtd_vendas_etanol = v_qtd_vendas_etanol + 1;
+
+                div_mens.innerHTML +=
+                    `Com a venda de ${v_vendas.toFixed(1)} de Etanol o saldo no tanque é de ${v_etanol_saldo.toFixed(1)} <br>`;
+            }
+
+        } else if (v_tipo == 2) {
+
+            if (v_vendas > v_gasolina_saldo) {
+
+                alert('Quantidade de vendas maior que o saldo do tanque');
+            } else {
+
+                v_gasolina_saldo = v_gasolina_saldo - v_vendas;
+                v_gasolina_vendida = v_gasolina_vendida + v_vendas;
+                v_qtd_vendas_gasolina = v_qtd_vendas_gasolina + 1;
+
+                div_mens.innerHTML +=
+                    `Com a venda de ${v_vendas.toFixed(1)} de Gasolina o saldo no tanque é de ${v_gasolina_saldo.toFixed(1)} <br>`;
+            }
+
+        } else {
+
+            alert('Selecione um tipo de combutível');
+        }
+    }
+
+    function encerrar() {
+
+        var val_dia = v_etanol_saldo < 300 || v_gasolina_saldo < 300 || v_gasolina_vendida > 1000 && v_etanol_vendida > 1500,
+            v_dia = '';
+
+        v_media_etanol = v_etanol_vendida / v_qtd_vendas_etanol,
+        v_media_gasolina = v_gasolina_vendida / v_qtd_vendas_gasolina;
+
+        if(!val_dia){
+
+            v_dia = 'bom';
+        } else {
+
+            v_dia = 'normal';
+        }
+
+
+        div_mens.innerHTML =
+            `<b> Venda de Etanol </b> <br><br>
+            Saldo de produto no tanque = ${v_etanol_saldo.toFixed(1)} <br>
+            Volume total vendido = ${v_etanol_vendida.toFixed(1)} <br>
+            Quantidade de vendas = ${v_qtd_vendas_etanol} <br>
+            Média das vendas = ${v_media_etanol.toFixed(1)}
+
+            <br><br>
+
+            <b> Venda de Gasolina </b> <br><br>
+            Saldo de produto no tanque = ${v_gasolina_saldo.toFixed(1)} <br>
+            Volume total vendido = ${v_gasolina_vendida.toFixed(1)} <br>
+            Quantidade de vendas = ${v_qtd_vendas_gasolina} <br>
+            Média das vendas = ${v_media_gasolina.toFixed(1)}
+
+            <br><br>
+
+            <b> O turno hoje foi ${v_dia} </b>`;
+
+    }
+</script>

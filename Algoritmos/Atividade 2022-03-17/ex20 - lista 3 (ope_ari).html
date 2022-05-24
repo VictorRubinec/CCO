@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex20 - lista 3 (ope_ari)</title>
+</head>
+
+<body>
+
+    Insira seu salário:
+    <input id="salario">
+    <br><br>
+    <button onclick="con_sala()">Confirmar salário</button>
+    <button onclick="pag_100()">Pagar conta de 100</button>
+    <button onclick="pag_500()">Pagar conta de 500</button>
+    <button onclick="gan_2000()">Ganhar 2000 na loteria</button>
+
+    <br><br>
+
+    <span id="span_mens"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    var var_salario = 0;
+
+    function con_sala() {
+
+        span_mens.innerHTML = `Grana atual: R$${salario.value}`
+    }
+
+
+    function pag_100() {
+
+        var_salario = var_salario - 100;
+
+        span_mens.innerHTML = `Grana atual: R$${var_salario.toFixed(2)}`
+    }
+
+
+    function pag_500() {
+
+        var_salario = var_salario - 500;
+
+        span_mens.innerHTML = `Grana atual: R$${var_salario.toFixed(2)}`
+    }
+
+
+    function gan_2000() {
+
+        var_salario = var_salario + 2000;
+
+        span_mens.innerHTML = `Grana atual: R$${var_salario.toFixed(2)}`
+    }
+
+</script>

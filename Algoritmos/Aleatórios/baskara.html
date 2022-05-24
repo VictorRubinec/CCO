@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báskara</title>
+</head>
+
+<body>
+
+    <input id="a" size="1">ax² +
+    <input id="b" size="1">b +
+    <input id="c" size="1">c
+
+    <br><br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <br><br>
+
+    <span id="span_resu"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    var delta = 0, v_a = 0, v_b = 0, v_c = 0, r1 = 0, r2 = 0;
+
+    function calcular() {
+
+        v_a = Number(a.value);
+        v_b = Number(b.value);
+        v_c = Number(c.value);
+
+        delta = (v_b ** 2) - (4 * v_a * v_c);
+
+        r1 = (-v_b + Math.sqrt(delta))/(2*v_a);
+
+        r2 = (-v_b - Math.sqrt(delta))/(2*v_a);
+
+        span_resu.innerHTML = `x1 = ${r1} <br> x2 = ${r2}`;
+    }
+
+</script>

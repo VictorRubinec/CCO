@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista 10 - ex17</title>
+</head>
+
+<body>
+
+    Selecione o tipo do arro:
+    <select id="sel_arroz">
+        <option value="0">-- Selecione --</option>
+        <option value="1">Integral</option>
+        <option value="2">Branco</option>
+    </select>
+
+    <br>
+
+    Digite o tempo do cozimento:
+    <input id="inp_tempo" placeholder="minutos">
+
+    <br>
+
+    Digite a quantidade de gramas de sal:
+    <input id="inp_gramas" placeholder="gramas">
+
+    <br><br>
+
+    <button onclick="avalizar()">Avaliar arroz</button>
+
+    <br><br>
+
+    <span id="span_resul"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function avalizar() {
+
+        var v_arroz = sel_arroz.value,
+            v_min = inp_tempo,
+            v_gra = inp_gramas;
+
+        if (v_arroz == 1) {
+
+            if (v_min != 10 || v_gra != 10) {
+
+                span_resul.innerHTML = `Seu arroz não está perfeito`;
+            }
+
+            else {
+
+                span_resul.innerHTML = `Arroz perfeito`;
+            }
+        }
+        if (v_arroz == 2) {
+
+            if (v_min != 20 || v_gra != 15) {
+
+                span_resul.innerHTML = `Seu arroz não está perfeito`;
+            }
+
+            else {
+
+                span_resul.innerHTML = `Arroz perfeito`;
+            }
+        }
+        else{
+            span_resul.innerHTML = ``;
+        }
+    }
+
+</script>

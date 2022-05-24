@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 9 - ex4</title>
+</head>
+
+<body>
+
+    O que você come no café da manhã?
+    <br>
+
+    <select id="sel_cafe">
+        <option value="0">Ovos</option>
+        <option value="1">Leite de arroz</option>
+        <option value="0">Bacon</option>
+    </select>
+
+    <br><br>
+
+    O que você come no almoço?
+    <br>
+
+    <select id="sel_alm">
+        <option value="0">Bife</option>
+        <option value="1">Hamburger de soja</option>
+        <option value="0">Frango Grelhado</option>
+    </select>
+
+    <br><br>
+
+    O que você come na janta?
+    <br>
+
+    <select id="sel_jan">
+        <option value="1">Picanha de soja</option>
+        <option value="0">Cupim</option>
+        <option value="0">Coração</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="f_vegano()">Sou vegano</button>
+
+</body>
+
+<script>
+
+    function f_vegano() {
+
+        if (sel_cafe.value == 1 && sel_alm.value == 1 && sel_jan.value == 1) {
+
+            alert(`Sim, você é vegano!`);
+
+        } else {
+
+            alert(`Não, você não é vegano`);
+        }
+    }
+
+</script>
+
+</html>

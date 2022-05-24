@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex12 - lista 4</title>
+</head>
+
+<body>
+
+    Digite quantas horas você dorme em média: 
+    <input id="horas">
+    
+    <br><br>
+
+    <button onclick="calcular()">Calcular Sono</button>
+
+    <br><br>
+    
+    <span id="span_mens"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    var f1_h, f2_h, f3_h, f4_h;
+    var f1_m, f2_m, f3_m, f4_m;
+    var hora_min, hora;
+
+    function calcular(){
+
+        hora = horas.value;
+        hora_min = horas.value * 60;
+
+        f1_h = hora * 0.05;
+        f1_m = (hora_min * 0.05)%60;
+        
+        f2_h = hora * 0.45;
+        f2_m = (hora_min * 0.45)%60;
+
+        f3_h = hora * 0.30;
+        f3_m = (hora_min * 0.30)%60;
+        
+        f4_h = hora * 0.20;
+        f4_m = (hora_min * 0.20)%60;
+        
+        span_mens.innerHTML = `Ao dormir <u>${horas.value}</u>, você dormiu: <br><br>
+            <u>${f1_h.toFixed(0)}h${f1_m}</u> na <b>fase 1</b> <br>
+            <u>${f2_h.toFixed(0)}h${f2_m}</u> na <b>fase 2</b> <br>
+            <u>${f3_h.toFixed(0)}h${f3_m}</u> na <b>fase 3</b> <br>
+            <u>${f4_h.toFixed(0)}h${f4_m}</u> na <b>fase REM</b> <br>`;
+
+    }
+
+</script>

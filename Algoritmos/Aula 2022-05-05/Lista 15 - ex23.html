@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset=" UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 23 - ex23</title>
+</head>
+
+<body>
+
+    Digite a quantidade de elefantes: <br>
+    <input id="ipt_elefantes">
+
+    <br><br>
+
+    <button onclick="atazanar()">Atazanar a médium</button>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function atazanar() {
+
+        var v_max = Number(ipt_elefantes.value);
+
+        if (v_max == 1){
+
+            alert('Digite um valor acima de 1');
+        }
+
+        for (var v_cont = 2; v_cont <= v_max; v_cont++) {
+
+            div_resul.innerHTML += `1 elefante incomoda muita gente! <br> 
+                                    ${v_cont} elefantes, `;
+
+            for(var v_incomodam = 1; v_incomodam <= v_cont; v_incomodam++){
+
+                div_resul.innerHTML += `<b>incomodam</b>, `;
+            }
+
+            div_resul.innerHTML += `muito mais! <br>`;
+        }
+    }
+
+</script>

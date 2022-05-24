@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 13 - ex2</title>
+</head>
+
+<body>
+
+    <h1>-- Banco 24hrs --</h1>
+
+    Digite o valor do saque:a <br>
+    <input id="ipt_valor"> <br>
+    <span style="color: red; font-size: 12px;">Somente notas de R$10, R$50 e R$100 disponíveis</span>
+
+
+    <br><br>
+
+    <button onclick="solicitar()">Solicitar Saque</button>
+
+</body>
+
+</html>
+
+<script>
+
+    var v_valor = 0,
+        val_saque_pos = 0,
+        v_saldo = 1000;
+
+    function solicitar() {
+
+        v_valor = Number(ipt_valor.value),
+        val_saque_pos = (v_valor % 10) == 0;
+
+        if (v_valor <= 0) {
+
+            alert('Não é possível sacar 0 ou menos, dãaaa!');
+        } else if (!val_saque_pos) {
+
+            alert('Valor não possível devido às notas disponíveis');
+        } else if (v_valor > 1000 || v_saldo < v_valor){
+
+            alert('Valor solicitado maior que o disponível na máquina');
+        } else {
+
+            v_saldo -= v_valor;
+
+            alert('Retire o dinheiro no local indicado');
+        }
+    }
+
+</script>

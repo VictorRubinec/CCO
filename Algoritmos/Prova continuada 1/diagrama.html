@@ -1,0 +1,130 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Bivago</title>
+
+    <style>
+
+        *{
+            font-family: Arial;
+        }
+
+        #div_continuacao{
+            display: none;
+        }
+
+        button{
+            font-size: 13px;
+            border: none;
+            padding: 8px;
+            padding-right: 25px;
+            padding-left: 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: rgb(76, 33, 175);
+            color: white;
+            font-weight:bold;
+        }
+
+        button:hover{
+            background-color: rgb(62, 27, 143);
+        }
+
+        select{
+            border: 2px solid rgb(180, 180, 180);
+            border-radius: 5px;
+            background-color: rgb(245, 245, 245);
+        }
+
+        select{
+            border: 2px solid rgb(180, 180, 180);
+            border-radius: 5px;
+            background-color: rgb(245, 245, 245);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    Digite qual mês você gostaria de se hospedar em nosso hotel:
+    <select id="select_mes">
+        <option value="" selected disabled> -- Selecione -- </option>
+        <option value="1">Janeiro</option>
+        <option value="2">Fevereiro</option>
+        <option value="3">Março</option>
+        <option value="4">Abril</option>
+        <option value="5">Maio</option>
+        <option value="6">Junho</option>
+        <option value="7">Julho</option>
+        <option value="8">Agosto</option>
+        <option value="9">Setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+    </select>
+
+    <button onclick="mes()">Escolher Mês</button>
+
+    <span id="mens_mes"></span>
+
+    <div id="div_continuacao">
+
+        <input id="input_dias">
+        <input id="input_pessoas">
+
+        <button onclick="continuacao()">Verificar</button>
+ 
+</html>
+
+<script>
+
+    function mes() {
+
+        if (select_mes.value == 1 || select_mes.value == 2 || select_mes.value == 3) {
+            mens_mes.innerHTML = "Verão, sol, praia... tudo de bom";
+            div_continuacao.style.display = "block"
+        }
+
+        if (select_mes.value == 4 || select_mes.value == 5 || select_mes.value == 6) {
+            mens_mes.innerHTML = "O Outono, periodo para saborear e as frutas";
+            div_continuacao.style.display = "block"
+        }
+
+        if (select_mes.value == 7 || select_mes.value == 8 || select_mes.value == 9) {
+            mens_mes.innerHTML = "Inverno, que tal curtir o clima frio das montanhas";
+            div_continuacao.style.display = "block"
+        }
+
+        if (select_mes.value == 10 || select_mes.value == 11 || select_mes.value == 12) {
+            mens_mes.innerHTML = "A Primaveira é a estação das flores";
+            div_continuacao.style.display = "block"
+        }
+    }
+
+    function continuacao() {
+
+        var qpd;
+
+        qpd = input_dias.value * input_pessoas.value;
+
+        if (qpd < 10) {
+
+            mens_continuacao.innerHTML = "Faça sua reserva pelo app";
+        }
+
+        if (qpd >= 10 && qpd <= 20) {
+
+            mens_continuacao.innerHTML = "Nosso gerente já irá atênde-lo";
+        }
+
+        if (qpd > 20) {
+            
+            mens_continuacao.innerHTML = "Nosso departamento de reserva estrará em contato";
+        }
+    }
+
+</script>

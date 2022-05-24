@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salários</title>
+</head>
+
+<body>
+
+    Digite o salário da função <br> R$:
+    <input id="salario">
+    <br><br>
+    <button onclick="homem()">Salário homem</button>
+    <button onclick="mulher()">Salário mulher</button>
+    <br><br>
+    <span id="span_imc"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function homem(){
+        span_imc.innerHTML = `Seu salário é de: ${salario.value}`;
+    }
+
+    function mulher(){
+        span_imc.innerHTML = `Seu salário é de: ${salario.value * 0.6}`;
+    }
+
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex2 - lista3 (ope_ari)</title>
+</head>
+
+<body>
+    Digite sua idade: 
+    <input id="idade">
+    <br><br>
+    <button onclick="mulher()">Aposentadoria Mulher</button>
+    <button onclick="homem()">Aposentadoria Homem</button>
+    <br>
+    <br>
+    <div id="div_mens"></div>
+</body>
+
+</html>
+
+<script>
+
+    function mulher(){
+        div_mens.innerHTML = `<span style='color: palevioletred;'> Se for <u>mulher</u> faltam <b> ${60 - idade.value} </b> anos p/ aposentar </span>` //Se for nas aspas, '+ (60 - idade.value) +' 
+    }
+
+    function homem(){
+        div_mens.innerHTML = `<span style='color: palevioletred;'> Se for <u>mulher</u> faltam <b> ${70 - idade.value} </b> anos p/ aposentar </span>`
+    }
+
+</script>

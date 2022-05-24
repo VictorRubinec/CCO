@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista 5 - ex6</title>
+</head>
+
+<body>
+
+    <select id="lista_estacoes" onchange="estacao()">
+        <option value="" disabled selected>-Selecione-</option>
+        <option value="https://s2.static.brasilescola.uol.com.br/img/2019/09/primavera.jpg">Primavera</option>
+        <option value="https://www.oficinadeinverno.com.br/blog/wp-content/uploads/2016/10/mala-para-a-Su%C3%A9cia.jpg">Inverno</option>
+        <option value="https://cevisa.org.br/portal/wp-content/uploads/2021/01/verao.png">Verão</option>
+        <option value="https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/11/folhas.jpg">Outono</option>
+    </select>
+
+    <br>
+    <br>
+
+    <img src="" id="img_estacao" height="150px" width="200px" style="display: none;">
+
+</body>
+
+</html>
+
+<script>
+
+    function estacao() {
+
+        img_estacao.style.display = 'block';
+
+        img_estacao.src = lista_estacoes.value;
+    }
+
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 15 - ex15</title>
+</head>
+
+<body>
+
+    Quantos meses foram feitos depósitos: <br>
+    <input id="ipt_qtde_deposito">
+
+    <br><br>
+
+    Digite o valor dos depósitos: <br>
+    <input id="ipt_valor_deposito">
+
+    <br><br>
+
+    <button onclick="acompanhar()">Acompanhar grana</button>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function acompanhar() {
+
+        div_resul.innerHTML = ``;
+
+        var v_qtde_deposito = Number(ipt_qtde_deposito.value),
+            v_valor_deposito = Number(ipt_valor_deposito.value),
+            v_saldo = 0;
+
+        for (var val_qtde = 1; val_qtde <= v_qtde_deposito; val_qtde++) {
+
+            v_saldo += v_valor_deposito;
+
+            if (val_qtde % 3 == 0) {
+                
+                v_saldo *= 1.01;
+            }
+
+            div_resul.innerHTML += `${val_qtde}° Mês: R$${v_saldo.toFixed(2)} <br>`;
+        }
+
+        div_resul.innerHTML += `<br> Total guardado: <b>R$${v_saldo.toFixed(2)}</b> <br>`;
+    }
+
+</script>

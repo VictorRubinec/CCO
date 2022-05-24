@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 16 - ex5</title>
+</head>
+
+<body>
+
+    Insira o nome do filme: <br>
+    <input id="ipt_filme">
+
+    <br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <br><br>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var v_filme = 0,
+        vet_filme = [];
+
+    function cadastrar() {
+
+        v_filme = ipt_filme.value;
+
+        if (v_filme == '' || v_filme == null) {
+
+            alert('Campo vazio');
+        } else {
+
+            vet_filme.push(v_filme);
+
+            for (var cont = 0; cont < vet_filme.length; cont++) {
+
+                if (vet_filme.length < 3) {
+
+                    div_resul.innerHTML = `
+                        Seu filme favorito: ${vet_filme[0]} <br>
+                        Seu 3º filme favorito: Ainda não existe <br>
+                        Total de filmes cadastrados: ${vet_filme.length}
+                        `;
+                } else {
+
+                    div_resul.innerHTML = `
+                        Seu filme favorito: ${vet_filme[0]} <br>
+                        Seu 3º filme favorito: ${vet_filme[2]} <br>
+                        Total de filmes cadastrados: ${vet_filme.length}
+                        `;
+                }
+
+            }
+
+            ipt_filme.value = '';
+            ipt_filme.focus();
+        }
+    }
+
+</script>

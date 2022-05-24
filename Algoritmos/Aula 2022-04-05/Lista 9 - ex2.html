@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 9 - ex2</title>
+</head>
+
+<body>
+
+    Digite sua renda individual: <br>
+    <input type="text" id="inp_rind">
+
+    <br><br>
+
+    Digite sua renda familiar: <br>
+    <input type="text" id="inp_rfam">
+
+    <br><br>
+
+    <button onclick="f_verificar()">Verificar ajuda</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function f_verificar(){
+        
+        if (inp_rind.value <= 1050 && inp_rfam.value <= 2100){
+
+            alert(`Você terá direito!`);
+        } else{
+
+            alert(`Você NÃO terá direito`);
+        }
+    }
+        
+</script>

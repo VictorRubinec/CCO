@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex6 - lista 4</title>
+</head>
+
+<body>
+
+    Digite seu nome: <input id="nome">
+    <br>
+    Digite o total de aulas: <input id="aulas_t">
+    <br>
+    Digite o número de aulas faltadas:<input id="aulas_f">
+
+    <br><br>
+    <button onclick="calcular()">Calcular Frequêcia</button>
+
+    <br><br>
+
+    <span id="span_mens"></span>
+
+    <br>
+
+    <div>
+
+        <div id="div_barra_verde" style="background-color: green; height: 20px; display: block; float: left;"></div>
+        <div id="div_barra_vermelho" style="background-color: red; height: 20px; display: block; float: left;"></div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var media_a = 0;
+
+    function calcular() {
+
+        media_a = 100 - (aulas_f.value / (aulas_t.value / 100));
+
+        span_mens.innerHTML = `<span style='color:blue'>Olá, ${nome.value}! Sua frequência é de </span><b style='color: green'>${media_a}%</b>`;
+
+        div_barra_verde.style.display = `block`;
+        div_barra_verde.style.width = `${media_a}%`
+
+        div_barra_vermelho.style.display = "block";
+        div_barra_vermelho.style.width = `${100 - media_a}%`
+    }
+
+</script>

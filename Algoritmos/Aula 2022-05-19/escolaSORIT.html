@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorit</title>
+</head>
+
+<body>
+    <h2>Escola SORIT</h2>
+    Entre com a idade do aluno: <input id="ipt_idade">
+    <button onclick="cadastrar()">Cadastrar</button> <br><br>
+
+    Intervalo de ocorrências para análise
+    <input id="ipt_ocor_de"> <input id="ipt_ocor_ate">
+    <button onclick="ocorrencias()">Analisar Ocorrências</button> <br>
+
+    Intervalo de idades para análise
+    <input id="ipt_idade_de"> <input id="ipt_idade_ate">
+    <button onclick="idades()">Analisar Idades</button> <br><br>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+<script>
+
+    var vet_idades = [],
+        v_qtde = 0;
+
+    function cadastrar() {
+
+        div_msg.innerHTML = '';
+
+        var v_idade = Number(ipt_idade.value);
+
+        if (v_idade == '') {
+
+            alert('Campo de idade vazio');
+        } else if (v_idade <= 0) {
+
+            alert('Idade menor ou igual a 0');
+        } else if (v_idade <= 17) {
+
+            alert('Idade inferior à permitida');
+        } else if (v_idade <= 64) {
+
+            vet_idades.push(v_idade);
+        } else if (v_idade <= 80) {
+
+            vet_idades.push(v_idade);
+            alert('Associação permitida, mas com restrição');
+        } else if (v_idade > 80) {
+
+            alert('Idade superior à permitida');
+        } else {
+
+            alert('Valor não permitido');
+        }
+
+        v_qtde = vet_idades.length;
+
+        if (v_qtde > 0) {
+
+            for (var count = v_qtde; count > 0; count--) {
+
+                div_msg.innerHTML += `${vet_idades[count - 1]}<br>`;
+            }
+        }
+
+        ipt_idade.value = '';
+
+        ipt_idade.focus();
+    }
+
+    function ocorrencias() {
+
+        var v_ocorrencia1 = Number(ipt_ocor_de.value),
+            v_ocorrencia2 = Number(ipt_ocor_ate.value),
+            v_menor_oco = 999,
+            v_maior_oco = 0,
+            v_media_oco = 0,
+            v_qtde_oco = 0,
+            v_soma_oco = 0;
+
+        div_msg.innerHTML = '';
+
+        if (v_ocorrencia1 == '' || v_ocorrencia2 == '') {
+
+            alert('Algum campo vazio');
+        } else if (v_ocorrencia1 <= 0 || v_ocorrencia2 <= 0) {
+
+            alert('Digite valores acima de 0');
+        } else if (v_ocorrencia1 > v_qtde || v_qtde == 0 || v_ocorrencia2 > v_qtde) {
+
+            alert('Antes de Analisar faça o cadastro das idades');
+        } else if (v_ocorrencia1 >= v_ocorrencia2) {
+
+            alert('Informar o intervalo de ocorrências corretamente');
+        } else if (v_ocorrencia1 < v_ocorrencia2) {
+
+            for (var i = v_ocorrencia1; v_ocorrencia2 >= i; i++) {
+
+                if (vet_idades[i - 1] > v_maior_oco) {
+
+                    v_maior_oco = vet_idades[i - 1];
+                }
+
+                if (vet_idades[i - 1] < v_menor_oco) {
+
+                    v_menor_oco = vet_idades[i - 1];
+                }
+
+                v_qtde_oco++;
+
+                v_soma_oco += vet_idades[i - 1];
+            }
+
+            v_media_oco = v_soma_oco / v_qtde_oco;
+
+            div_msg.innerHTML =
+                `<b>Resumo do intervalo de ocorrências</b> <br><br>
+                Inicial: ${v_ocorrencia1} Final: ${v_ocorrencia2} <br>
+                Menor Idade do intervalo: ${v_menor_oco} <br>
+                Maior Idade do intervalo: ${v_maior_oco} <br>
+                Qtde de idades cadastradas no intervalo: ${v_qtde_oco} <br>
+                Média das idades do intervalo: ${v_media_oco.toFixed(2)}`;
+
+        } else {
+
+            alert('Valor não permitido');
+        }
+
+        ipt_ocor_de.value = '';
+        ipt_ocor_ate.value = '';
+
+        ipt_ocor_de.focus();
+    }
+
+    function idades() {
+
+        var v_idade1 = Number(ipt_idade_de.value),
+            v_idade2 = Number(ipt_idade_ate.value),
+            v_menor_idade = 999,
+            v_maior_idade = 0,
+            v_media_idade = 0,
+            v_qtde_idade = 0,
+            v_soma_idade = 0,
+            v_primeira_oco = 999,
+            v_ultima_oco = -1,
+            vet_idade_lista = [];
+
+        div_msg.innerHTML = '';
+
+        if (v_idade1 == '' || v_idade2 == '') {
+
+            alert('Algum campo vazio');
+        } else if (v_idade1 <= 0 || v_idade2 <= 0) {
+
+            alert('Digite valores acima de 0');
+        } else if (v_idade1 < 18 || v_idade2 < 18 || v_idade1 > 80 || v_idade2 > 80) {
+
+            alert('Digite valores entre 18 e 80');
+        } else if (v_qtde == 0) {
+
+            alert('Antes de Analisar faça o cadastro das idades');
+        } else if (v_idade1 >= v_idade2) {
+
+            alert('Informar o intervalo de ocorrências corretamente');
+        } else if (v_idade1 < v_idade2) {
+
+            for (var i = 0; v_qtde > i; i++) {
+
+                if (vet_idades[i] >= v_idade1 && vet_idades[i] <= v_idade2) {
+
+                    vet_idade_lista.push(vet_idades[i]);
+
+                    if (vet_idades[i] > v_maior_idade) {
+
+                        v_maior_idade = vet_idades[i];
+                    }
+
+                    if (vet_idades[i] < v_menor_idade) {
+
+                        v_menor_idade = vet_idades[i];
+                    }
+
+                    if (i > v_ultima_oco) {
+
+                        v_ultima_oco = i;
+                    }
+
+                    if (i < v_primeira_oco) {
+
+                        v_primeira_oco = i;
+                    }
+
+                    v_qtde_idade++;
+
+                    v_soma_idade += vet_idades[i];
+                }
+
+            }
+
+            if (v_qtde_idade == 0) {
+
+                alert('Não há registros dentro desse intervalo');
+            } else {
+
+                v_media_idade = v_soma_idade / v_qtde_idade;
+
+                div_msg.innerHTML =
+                    `<b>Resumo do intervalo de ocorrências</b> <br><br>
+                
+                Inicial: ${v_idade1} Final: ${v_idade2} <br>
+                Menor Idade do intervalo: ${v_menor_idade} <br>
+                Maior Idade do intervalo: ${v_maior_idade} <br>
+                Qtde de idades cadastradas no intervalo: ${v_qtde_idade} <br>
+                Média das idades do intervalo: ${v_media_idade.toFixed(2)} <br>
+                Primeira ocorrência que atendeu o intervalo: ${v_primeira_oco + 1} <br>
+                Última ocorrência que atendeu o intervalo: ${v_ultima_oco + 1} <br><br>
+                
+                ${vet_idade_lista}`;
+            }
+        } else {
+
+            alert('Valor não permitido');
+        }
+
+        ipt_idade_de.value = '';
+        ipt_idade_ate.value = '';
+
+        ipt_idade_de.focus();
+
+    }
+</script>

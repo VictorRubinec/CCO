@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex8 - lista 4</title>
+</head>
+
+<body>
+
+    Digite a quantidade de filhos com menos de 10 anos: 
+    <input id="qtdf_menor">
+
+    <br>
+
+    Digite a quantidade de filhos a partir de 10 anos: 
+    <input id="qtdf_maior">
+
+    <br><br>
+
+    <button onclick="calcular()">Calcular Auxílio Filhos</button>
+
+    <br><br>
+
+    <span id="span_mens"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    var aux = 0;
+
+    function calcular(){
+
+        aux = (qtdf_menor.value * 30) + (qtdf_maior.value * 20);
+
+        span_mens.innerHTML = `Você tem <b>${qtdf_menor.value}</b> filhos menores de 10 anos e <b>${qtdf_maior.value}</b> filhos a partir de 10 anos, logo, seu "Auxílio Filhos" será de <b><i>R$${aux.toFixed(2)}</i></b>`
+    
+    }
+
+</script>

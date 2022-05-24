@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 7 - ex9</title>
+</head>
+
+<body>
+
+    <select id="sel_especie" onchange="f_especie()">
+        <opt src="" id="img_animal" height="300px">
+
+        <br><br>
+
+        <span>Valor de compra do animal:</span>
+        <input type="text" id="inp_valor">
+
+        <br><br>
+
+        <button onclick="f_calcular()" >Calcular imposto</button>
+        <button onclick="f_resetar()">Restart</button>
+
+        <br><br>
+
+        <span id="span_resul"></span>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var v_total = 0;
+
+    function f_especie() {
+
+        if (seion value="0">- Escolha uma espécie -</option>
+        <option value="1">Ovíparos</option>
+        <option value="2">Mamíferos</option>
+    </select>
+
+    <br><br>
+
+    <select id="sel_oviparo" onchange="f_oviparo()" style="display: none;">
+        <option value="0">- Escolha um Ovíparo -</option>
+        <option value="https://www.anad.org.br/wp-content/uploads/2020/08/galinha-e-o-ovo.jpg">Galinha</option>
+        <option value="https://super.abril.com.br/wp-content/uploads/2020/11/lambari_site.jpg">Peixe</option>
+        <option value="https://img.ibxk.com.br/2021/08/20/20214451151003.jpeg">Tartaruga</option>
+    </select>
+
+    <select id="sel_mamifero" onchange="f_mamifero()" style="display: none;">
+        <option value="0">- Escolha um Mamífero -</option>
+        <option value="https://static.preparaenem.com/2022/01/elefante-africano-de-savana-na-pastagem.jpg">Elefante
+        </option>
+        <option
+            value="https://super.abril.com.br/wp-content/uploads/2017/03/porque-cabec3a7a-de-porco-c3a9-proibida-na-linguic3a7a1.jpg?quality=90&strip=info&w=1024">
+            Porco</option>
+        <option value="https://www.infoescola.com/wp-content/uploads/2008/07/coelho.jpg">Coelho</option>
+    </select>
+
+    <br><br>
+
+    <div id="container" style="display: none;">  
+
+        <imgl_especie.value == "0") {
+
+            sel_oviparo.style.display = "none";
+            sel_mamifero.style.display = "none";
+        }
+
+        if (sel_especie.value == "1") {
+
+            sel_oviparo.style.display = "block";
+            sel_mamifero.style.display = "none";
+        }
+
+        if (sel_especie.value == "2") {
+
+            sel_oviparo.style.display = "none";
+            sel_mamifero.style.display = "block";
+        }
+    }
+
+    function f_oviparo() {
+
+        if (sel_oviparo.value == "0") {
+
+            img_animal.style.display = "none";
+
+            container.style.display = "none";
+
+        } else {
+
+            img_animal.style.display = "block";
+            img_animal.src = sel_oviparo.value;
+
+            container.style.display = "block";
+        }
+    }
+
+    function f_mamifero() {
+
+        if (sel_mamifero.value == "0") {
+
+            img_animal.style.display = "none";
+
+            container.style.display = "none";
+
+        } else {
+
+            img_animal.style.display = "block";
+            img_animal.src = sel_mamifero.value;
+
+            container.style.display = "block";
+        }
+    }
+
+    function f_calcular() {
+
+        var v_valor = 0;
+
+        if (sel_especie.value == "1") {
+
+            v_valor = inp_valor.value * 0.05;
+
+            span_resul.innerHTML = `O imposto será de R$${v_valor.toFixed(2)}`;
+
+            v_total = v_total + v_valor;
+        }
+
+
+        if (sel_especie.value == "2") {
+
+            v_valor = inp_valor.value * 0.1;
+
+            span_resul.innerHTML = `O imposto será de R$${v_valor.toFixed(2)}`;
+            
+            v_total = v_total + v_valor;
+        }
+    }
+
+    function f_resetar(){
+
+        alert(`Valor total de todos os impostos calculados R$${v_total.toFixed(2)}`);
+
+        sel_especie.value = "0";
+        sel_mamifero.value = "0";
+        sel_oviparo.value = "0";
+
+        sel_mamifero.style.display = "none";
+        sel_oviparo.style.display = "none";
+
+        img_animal.style.display = "none";
+
+        container.style.display = "none";
+
+        inp_valor.value = "";
+        span_resul.innerHTML = "";
+
+    }
+
+</script>

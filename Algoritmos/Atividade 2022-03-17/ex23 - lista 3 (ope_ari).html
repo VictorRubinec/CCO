@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex23 - lista 3 (ope_ari)</title>
+</head>
+
+<body>
+
+    <div>
+
+        clique nas fotos
+
+        <br>
+
+        <img src="https://static1.purebreak.com.br/articles/9/89/92/9/@/343792-shawn-mendes-e-camila-cabello-cantor-de-diapo-1.jpg"
+            height="150px" onclick="cantor_um()"> Votos:<b id="c_um"> 0 </b>
+        <br>
+        <img src="http://pm1.narvii.com/6898/b9ec8bd040ca4ab7740633e63bb83abef4a0c64ar1-467-315v2_00.jpg" height="150px"
+            onclick="cantor_dois()"> Votos:<b id="c_dois"> 0 </b>
+        <br>
+        Total de Votos: <b id="voto_t">0</b>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var c_1 = 0, c_2 = 0, t = 0;
+
+    function cantor_um() {
+
+        c_1 = c_1 + 1;
+        t = t + 1;
+
+        c_um.innerHTML = c_1;
+
+        voto_t.innerHTML = t;
+
+    }
+
+
+    function cantor_dois() {
+
+        c_2 = c_2 + 1;
+        t = t + 1;
+
+        c_dois.innerHTML = c_2;
+
+        voto_t.innerHTML = t;
+    }
+</script>

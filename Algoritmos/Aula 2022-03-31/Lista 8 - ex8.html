@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-be">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 8 - ex8</title>
+</head>
+
+<body>
+
+    Digite os valores abaixo:
+
+    <br>
+
+    <input type="text" id="inp_paes" placeholder="n° de Pães">
+    <input type="text" id="inp_pacote" placeholder="n° de Pacotes">
+    <input type="text" id="inp_copo" placeholder="n° de Copos">
+
+    <br><br>
+
+    <button onclick="f_vefificar()">Verificar calorias</button>
+
+    <br><br>
+
+    <div id="div_mens"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function f_vefificar() {
+
+        var v_pao = inp_paes.value * 50,
+            v_pacote = inp_pacote.value * 80,
+            v_copo = inp_copo.value * 70,
+            v_total;
+
+        v_total = v_copo + v_pacote + v_pao;
+
+        if (v_total < 200) {
+
+            div_mens.innerHTML = `Parabéns, vai sair em forma da quarentena!`;
+        } else {
+
+            if (v_total > 400) {
+
+                div_mens.innerHTML = `Cuidado, vai ficar mais "fofinho(a)" após quarentena!`;
+            } else {
+
+                div_mens.innerHTML = `Bom, acho que muitos não vão te reconhecer após a quarentena`;
+            }
+        }
+    }
+</script>

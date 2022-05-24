@@ -1,0 +1,20 @@
+.A {
+    background-color: rgb(180, 52, 231);
+    height: 250px;
+    width: auto;
+    display: flex;
+    vertical-align: middle;
+}
+
+.B {
+    background-color: #ff00dd;
+    height: auto;
+    width: 250px;
+    border: 20px red solid;
+}
+
+.C{
+    background-color: aquamarine;
+    height: 88%;
+    width: 30%;
+}

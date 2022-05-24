@@ -1,0 +1,50 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTOM</title>
+</head>
+
+<body>
+
+    <h1>Créditos OTOM</h1>
+
+    Digite o valor do veículo:
+    <input id="valor">
+
+    <br>
+    <br>
+
+    <button onclick="moto()">Moto</button>
+    <button onclick="carro()">Carro</button>
+
+    <br>
+    <br>
+
+    <span id="span_mens"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function moto() {
+
+        span_mens.innerHTML = `<h3>Valor do veículo:</h3>  O valor de cada parcela da moto em 6x é de R$${(Number(valor.value) + 500) / 6}, com o 
+        total de R$${Number(valor.value) + 500} já com a taxa de R$500`;
+
+    }
+
+
+    function carro() {
+
+        span_mens.innerHTML = `<h3>Valor do veículo:</h3>  O valor de cada parcela do carro em 12x é de R$${(Number(valor.value) + 1000) / 12}, 
+        com o total de R$${Number(valor.value) + 1000} já com a taxa de R$1000`;
+
+    }
+
+
+</script>

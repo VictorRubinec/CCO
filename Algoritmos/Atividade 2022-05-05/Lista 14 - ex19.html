@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 14 - ex19</title>
+</head>
+
+<body>
+
+    Quantas pessoas vão entrar no carro: <br>
+    <input id="ipt_pessoas">
+
+    <br>
+
+    indique a capacidade do carro de 1 à 5: <br>
+    <input type="range" id="ipt_capacidade" min="1" max="5">
+
+    <br><br>
+
+    <button onclick="carona()">#Partiu Carona</button>
+
+    <br><br>
+
+    <div id="div_mens"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var v_pessoas = 0,
+        v_capacidade = 0,
+        v_espera = 0;
+
+    function carona() {
+
+        div_mens.innerHTML = '';
+
+        v_pessoas = Number(ipt_pessoas.value);
+        v_capacidade = Number(ipt_capacidade.value);
+        v_espera = 0;
+
+        while (v_pessoas > v_espera) {
+
+            v_espera++; // valor somado
+
+            if (v_espera <= v_capacidade) {
+
+                if (v_espera == 1) {
+
+                    div_mens.innerHTML += `Entrou o ${v_espera}º passageiro (que é o(a) motorista)<br>`;
+                } else {
+                     // passageiro normal
+                    div_mens.innerHTML += `Entrou o ${v_espera}º passageiro <br>`;
+                }
+
+            } else {
+                div_mens.innerHTML += `O ${v_espera}º passageiro terá que esperar!<br>`
+
+            }
+
+        }
+    }
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 16 - ex11</title>
+</head>
+
+<body>
+
+    Digite o preço do produto: <br>
+    <input id="ipt_preco">
+
+    <br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Atualizar Estoque</button>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var vet_preco = [],
+        v_soma = 0,
+        v_preco = 0;
+
+    function cadastrar() {
+
+        v_preco = Number(ipt_preco.value);
+
+        vet_preco.push(v_preco);
+        ipt_preco.value = '';
+        ipt_preco.focus();
+    }
+
+    function exibir() {
+
+        for(var cont = 0; cont < vet_preco.length; cont++){
+
+            v_soma += vet_preco[cont];
+        }
+
+        div_resul.innerHTML = 
+            `Você tem ${vet_preco.length} produtos cadastrados em estoque <br>
+            Seu estoque vale R$${v_soma.toFixed(2)}`;
+
+        v_soma = 0;
+        vet_preco = [];
+    }
+
+</script>

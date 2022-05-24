@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 16 - ex3</title>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>Insira o nome do Bairro que você já morou:</td>
+            <td><input id="ipt_bairro"></td>
+        </tr>
+        <tr>
+            <td>Ele está em qual posição na ordem:</td>
+            <td><input id="ipt_posicao" placeholder="Exemplo: 1 (primeiro)"></td>
+        </tr>
+    </table>
+
+    <button onclick="cadastrar()">Cadastrar bairro</button>
+    <button onclick="relembrar()">Relembrar moradia</button>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var vet_bairro = [],
+        vet_posicao = [],
+        v_bairro = 0,
+        v_posicao = 0,
+        validacao = 0,
+        val_posicao = 0;
+
+    function cadastrar() {
+
+        div_resul.innerHTML = ``;
+
+        v_bairro = ipt_bairro.value;
+        v_posicao = Number(ipt_posicao.value);
+
+        validacao = v_bairro == null || v_posicao == null || v_bairro == '' || v_posicao == '' || v_posicao <= 0,
+        val_posicao = vet_posicao.length + 1;
+
+        if (validacao) {
+
+            alert('Dados nulos ou inválidos');
+        } else if (v_posicao > val_posicao) {
+
+            alert(`ainda não morou num ${v_posicao}º bairro!`);
+        } else {
+
+            vet_bairro.push(v_bairro);
+            vet_posicao.push(v_posicao);
+        }
+
+        ipt_bairro.value = '';
+        ipt_posicao.value = '';
+        ipt_bairro.focus();
+    }
+
+    function relembrar() {
+
+        for (var cont = 0; cont < vet_posicao.length; cont++) {
+
+            div_resul.innerHTML += `${vet_posicao[cont]}° ${vet_bairro[cont]} <br>`;
+        }
+    }
+</script>

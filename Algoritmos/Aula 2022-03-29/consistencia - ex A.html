@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>consistencia - ex A</title>
+</head>
+
+<body>
+
+    <select id="select_local">
+        <option value="0"> -Selecionar- </option>
+        <option value="1"> SP - Capital </option>
+        <option value="2"> SP - Interior </option>
+        <option value="3"> Outros estados </option>
+    </select>
+
+    <br><br>
+
+    <button onclick="func_falar()">Falar do Local</button>
+
+    <br><br>
+
+    <img id="img_local" src="" height="300px" style="display: none;">
+
+    <br>
+
+    <span id="span_resul" style="font-size: 23px;"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function func_falar() {
+
+        var local = select_local.value;
+
+
+        if (local == 0) {
+
+            img_local.style.display = "none";
+
+            span_resul.innerHTML = ``;
+            
+            alert('Favor escolher uma opção');
+
+        }
+
+        if (local == 1) {
+
+            img_local.src = "https://cdn.acritica.net/img/pc/450/300/dn_noticia/2020/05/1589916297.jpg";
+            img_local.style.display = "block";
+
+            span_resul.innerHTML = `Os nascidos nesta cidade são Paulistanos`;
+
+        }
+
+        if (local == 2) {
+
+            img_local.src = "https://www.passagenspromo.com.br/blog/wp-content/uploads/2020/10/cidades-do-interior-de-sp-sao-luiz-do-paraitinga.jpg";
+            img_local.style.display = "block";
+
+            span_resul.innerHTML = `Os nascidos neste estado são Paulistas`;
+
+        }
+
+        if (local == 3) {
+
+            img_local.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzXUXCmC44mSah74INxR6saeh32ehong8pKg&usqp=CAU";
+            img_local.style.display = "block";
+
+            span_resul.innerHTML = `Os nascidos neste lugar não são Paulistanos e nem Paulistas`;
+
+        }
+    }
+
+</script>

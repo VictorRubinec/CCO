@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Morango</title>
+
+</head>
+
+<body>
+
+    <div id="div_abrir_vendas">
+
+        <h2>------Iniciar as vendas do dia---------</h2>
+
+        Informe a quantidade de caixas colhidas:
+
+        <input id="ipt_qtde_colhida"> <br><br><br>
+
+        <button onclick="abrir()">Abrir as Vendas</button>
+
+    </div>
+
+    <div id="div_registrar_vendas" style="display: none;">
+
+        <h2>------- Registrar Vendas -------</h2>
+
+        Quantidade vendida: <input id="ipt_qtde_vendida">
+
+        Valor de venda: <input id="ipt_val_venda">
+
+        <span id="span_msg_valor"></span> <br><br>
+
+        <button onclick="registrar()">Registrar a Venda</button>
+
+        <button onclick="encerrar()" style="background-color: red;">Encerrar as Vendas</button>
+
+        <div id="div_msg_vendas"></div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var v_qtde_morango = 0,
+        v_qtde_vendida = 0,
+        v_valor_morango = 0,
+        v_saldo = 0,
+        v_qtde_vendida_total = 0,
+        v_valor_total = 0;
+
+    function abrir() {
+
+        v_qtde_morango = ipt_qtde_colhida.value;
+
+        if (v_qtde_morango < 100) {
+
+            alert("ERRO - Com esse volume de Morangos não dá para abrir as vendas");
+        } else {
+
+            if (v_qtde_morango >= 100 && v_qtde_morango <= 2000) {
+
+                div_abrir_vendas.style.display = "none";
+                div_registrar_vendas.style.display = "block";
+            } else {
+
+                alert("AVISO – Tudo isso!!! Verificar se a quantidade está correta");
+
+                div_abrir_vendas.style.display = "none";
+                div_registrar_vendas.style.display = "block";
+            }
+        }
+
+        v_saldo = v_qtde_morango;
+    }
+
+    function registrar() {
+
+        var checagem = 0;
+
+        v_qtde_vendida = ipt_qtde_vendida.value;
+        v_valor_morango = ipt_val_venda.value;
+
+        if (v_qtde_vendida < 20 && v_valor_morango >= 5 && v_valor_morango <= 6) {
+
+            checagem = 1;
+            span_msg_valor.innerHTML = 'Valor OK'
+        } else {
+
+            if (v_qtde_vendida >= 20 &&
+                v_qtde_vendida <= 40 && v_valor_morango >= 4.5 && v_valor_morango <= 5.5) {
+
+                checagem = 1;
+                span_msg_valor.innerHTML = 'Valor OK'
+            } else {
+
+                if (v_qtde_vendida > 40 && v_valor_morango >= 4 && v_valor_morango <= 5) {
+
+                    checagem = 1;
+                    span_msg_valor.innerHTML = 'Valor OK'
+                } else {
+
+                    span_msg_valor.innerHTML = 'Valor errado para essa quantidade vendida'
+                }
+            }
+        }
+
+        if (v_saldo < v_qtde_vendida) {
+
+            alert('Quantidade de caixas insuficientes para a venda');
+
+            checagem = 0;
+        }
+
+        if (checagem == 1) {
+
+            v_saldo = v_saldo - v_qtde_vendida;
+
+            div_msg_vendas.innerHTML += `Com a venda de ${v_qtde_vendida} de caixas de Morango o saldo no restante é de ${v_saldo} <br>`;
+
+            v_qtde_vendida_total = Number(v_qtde_vendida_total) + Number(v_qtde_vendida);
+            v_valor_total = Number(v_valor_total) + (v_qtde_vendida * v_valor_morango);
+        }
+    }
+
+    function encerrar() {
+
+        var v_turno;
+
+        var v_media = v_valor_total / v_qtde_vendida_total;
+
+        if (v_media >= 5 || v_qtde_vendida_total > 1000 && v_saldo < 100) {
+
+            v_turno = "bom";
+        } else {
+
+            v_turno = "normal";
+        }
+
+        div_msg_vendas.innerHTML =
+            `<br>
+            Saldo de produto = ${v_saldo} caixas <br>
+            Volume total vendido = ${v_qtde_vendida_total} caixas <br>
+            Valor total das vendas = R$${v_valor_total.toFixed(2)} <br> 
+            Valor médio das vendas = R$${v_media.toFixed(2)} <br><br>
+            <b>O turno de hoje foi ${v_turno}</b>`;
+    }
+
+</script>

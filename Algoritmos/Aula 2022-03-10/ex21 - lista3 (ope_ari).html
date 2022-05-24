@@ -1,0 +1,45 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cofrinho</title>
+</head>
+
+<body>
+
+    <span id="resultado" style="color: blue;">
+        <h2>Total guardado no cofrinho: R$<u id="valor">0.00</u> 
+            <br>
+            Depósitos efetuados: <u id="deposito">0</u>
+        </h2>
+    </span>
+    <button onclick="dep_050()">Depositar R$0.50</button>
+    <button onclick="dep_2()">Depositar R$2.00</button>
+
+</body>
+
+</html>
+
+<script>
+
+    var dinheiro = 0, qtd_deposito = 0;
+
+    function dep_050() {
+        dinheiro = dinheiro + 0.50;
+        qtd_deposito = qtd_deposito + 1;
+
+        valor.innerHTML = dinheiro; //.toFixed(2) deixa o valor formatado em duas casa decimais, ex: R$12.50
+        deposito.innerHTML = qtd_deposito;
+    }
+
+    function dep_2() {
+        dinheiro = dinheiro + 2;
+        qtd_deposito = qtd_deposito + 1;
+
+        valor.innerHTML = dinheiro; //.toFixed(2);
+        deposito.innerHTML = qtd_deposito;
+    }
+
+</script>

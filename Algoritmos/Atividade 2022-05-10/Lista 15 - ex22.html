@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 15 - ex22</title>
+</head>
+
+<body>
+
+    <button onclick="verificar()">Curto 3 e 5!</button>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var val_3,
+        val_5;
+
+    function verificar() {
+
+        for (val_num = 1; val_num <= 100; val_num++) {
+
+            val_3 = val_num % 3 == 0;
+            val_5 = val_num % 5 == 0;
+
+            if (val_3 && val_5) {
+
+                div_resul.innerHTML += `É TRI! É PENTA!`;
+            } else if (val_3) {
+
+                div_resul.innerHTML += `É TRI!`;
+            } else if (val_5) {
+
+                div_resul.innerHTML += `É PENTA!`;
+            } else {
+
+                div_resul.innerHTML += `${val_num}`;
+            }
+
+            div_resul.innerHTML += `<br>`;
+        }
+    }
+
+</script>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividade</title>
+</head>
+
+<style>
+    span {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    Digite o valor mínimo: <br>
+    <input id="ipt_menor" placeholder="acima de 1"> <span id="erro_menor"></span>
+
+    <br><br>
+
+    Digite o valor máximo: <br>
+    <input id="ipt_maior" placeholder="abaixo de 100"> <span id="erro_maior"></span>
+
+    <br><br>
+
+    Digite o valor do divisor: <br>
+    <input id="ipt_divisor" placeholder="entre 3 e 10"> <span id="erro_divisor"></span>
+
+    <br><br>
+
+    <button onclick="contar()">Contar</button>
+
+    <br><br>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var v_menor = 0,
+        v_maior = 0,
+        v_divisor = 0,
+        validador = 0,
+        v_qtde = 0,
+        v_soma = 0,
+        v_media = 0,
+        v_max = 0,
+        v_min = 0;
+
+    function contar() {
+
+        v_menor = Number(ipt_menor.value),
+            v_maior = Number(ipt_maior.value),
+            v_divisor = Number(ipt_divisor.value),
+            validador = 0;
+
+        erro_menor.innerHTML = '';
+        erro_maior.innerHTML = '';
+        erro_divisor.innerHTML = '';
+
+        div_resul.innerHTML = '';
+
+        if (v_menor > v_maior) {
+
+            validador = 1;
+            erro_menor.innerHTML = '! Valor maior que o máximo informado !';
+            erro_maior.innerHTML = '! Valor menor que o minimo informado !';
+        }
+
+        if (v_menor <= 1) {
+
+            validador = 1;
+            erro_menor.innerHTML = '! Valor abaixo ou igual a 1 !';
+        }
+
+        if (v_maior >= 100) {
+
+            validador = 1;
+            erro_maior.innerHTML = '! Valor acima ou igual a 100 !';
+        }
+
+        if (v_divisor < 3 || v_divisor > 10) {
+
+            validador = 1;
+            erro_divisor.innerHTML = '! Valor fora do solicitado !';
+        }
+
+        if (v_menor == 0) {
+
+            erro_menor.innerHTML = '! Valor nulo !';
+            validador = 1;
+        }
+        if (v_maior == 0) {
+
+            erro_maior.innerHTML = '! Valor nulo !';
+            validador = 1;
+        }
+        if (v_divisor == 0) {
+
+            erro_divisor.innerHTML = '! Valor nulo !';
+            validador = 1;
+        }
+
+        if (validador == 0) {
+
+            for (v_menor; v_menor <= v_maior; v_menor++) {
+
+                if (v_menor % v_divisor == 0) {
+
+                    div_resul.innerHTML += `${v_menor} <br>`;
+
+                    v_qtde++;
+                    v_soma += v_menor;
+
+                    if (v_menor > v_max) {
+
+                        v_max = v_menor;
+                    }
+
+                    if (v_qtde == 1) {
+
+                        v_min = v_menor;
+                    }
+                }
+            }
+
+            v_media = v_soma / v_qtde;
+
+            div_resul.innerHTML += ` <br> <br>
+                Quantidade Total de Números Exibidos: ${v_qtde} <br>
+                Somatório dos Números Exibidos: ${v_soma} <br>
+                Média dos Números Exibidos: ${v_media.toFixed(2)} <br>
+                Maior Número Exibido: ${v_max} <br>
+                Menor Número Exibido: ${v_min}`;
+        }
+
+    }
+
+</script>

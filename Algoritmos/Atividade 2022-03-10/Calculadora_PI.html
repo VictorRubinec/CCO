@@ -1,0 +1,35 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenTech</title>
+</head>
+
+<body>
+
+    <h1>GreenTech</h1>
+
+    Digite a quantidades de litros gastos por mês na sua plantação: 
+    <br>
+    <input id="litros">
+
+    <br><br>
+    <button onclick="calcular()">Calcular</button>
+
+    <br><br>
+
+    <span id="mens"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular(){
+        mens.innerHTML = `Usando nossa estufa com o sistema de irrigação por gotejamento, o consumo de água cai em <b>60%</b>, assim seriam usados <b>${litros.value * 0.4} litros</b> por mês, assim o preço da água ficaria <b>R$${(litros.value * 0.4) * 0.1}</b>, tendo uma economia de <b>R$${(litros.value * 0.6) * 0.1}</b> com o total <b>R$${litros.value * 0.1}</b> `;
+    }
+
+</script>

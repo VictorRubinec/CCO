@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex11 - lista 5</title>
+</head>
+
+<body>
+
+    <h2>Cofrinho</h2>
+
+    <select id="cofre">
+        <option value="0.05">R$ 0.05</option>
+        <option value="0.10">R$ 0.10</option>
+        <option value="0.25">R$ 0.25</option>
+        <option value="0.50">R$ 0.50</option>
+        <option value="1.00">R$ 1.00</option>
+        <option value="2.00">R$ 2.00</option>
+        <option value="5.00">R$ 5.00</option>
+        <option value="10.00">R$ 10.00</option>
+    </select>
+
+    <br><br>
+
+    O saldo do cofrinho é de: R$ <b id="saldo">0.00</b>
+    <br>
+    A quantidade de operações foi: <b id="qtd">0</b>
+    <br>
+    Média dos depósitos: R$ <b id="media">0.00</b>
+
+    <br><br>
+
+    <button onclick="depositar()">Depositar</button>
+    <button onclick="gastar()">Gastar a Grana</button>
+
+</body>
+
+</html>
+
+<script>
+
+    var sal = 0, qtd_o = 0, med = 0;
+
+    function depositar(){
+
+        sal = sal + Number(cofre.value);
+
+        qtd_o = qtd_o + 1;
+
+        med = sal / qtd_o;
+
+        saldo.innerHTML = `${sal.toFixed(2)}`;
+        qtd.innerHTML = `${qtd_o}`;
+        media.innerHTML = `${med.toFixed(2)}`;
+
+    }
+
+    function gastar(){
+        sal = 0;
+        qtd_o = 0;
+        med = 0;
+
+        saldo.innerHTML = `${sal.toFixed(2)}`;
+        qtd.innerHTML = `${qtd_o}`;
+        media.innerHTML = `${med.toFixed(2)}`;
+    }
+
+</script>

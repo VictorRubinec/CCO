@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6 - lista 3 (input)</title>
+</head>
+
+<body>
+
+    Digite sua nota:
+    <input id="nota">
+    <br>
+    <br>
+    <button onclick="vo()">Opinião da vó</button>
+    <button onclick="mae()">Opinião da mãe</button>
+    <br>
+    <br>
+    <span id="span_opiniao"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function vo(){
+        span_opiniao.innerHTML = `Muito bem, que neto inteligente, porque tirou ${nota.value}`;
+    }
+
+    function mae(){
+        span_opiniao.innerHTML = `Não fez mais que tua obrigação com essa nota ${nota.value}`;
+    }
+
+</script>

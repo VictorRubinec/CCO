@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex22 - lista 3 (ope_ari)</title>
+</head>
+
+<body>
+
+    <div style="color: green;">
+        Votos na <u>Praça é Nossa:</u> <b id="voto_p">0</b> <br>
+        Votos no <u>Zorra Total:</u> <b id="voto_z">0</b> <br>
+        Total de Votos: <b id="voto_t">0</b>
+    </div>
+    <br><br>
+
+    <button onclick="praca()">Votar na Praça é Nossa</button>
+    <button onclick="zorra()">Votar na Zorra Total</button>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    var p = 0, z = 0, t = 0;
+
+    function praca() {
+
+        p = p + 1;
+        t = t + 1;
+
+        voto_p.innerHTML = p;
+
+        voto_t.innerHTML = t;
+
+    }
+
+
+    function zorra() {
+
+        z = z + 1;
+        t = t + 1;
+
+        voto_z.innerHTML = z;
+
+        voto_t.innerHTML = t;
+    }
+</script>

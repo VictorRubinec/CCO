@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex8 - lista 5 (desafio)</title>
+</head>
+
+<body>
+
+    <h2>Como está meu atendimento?</h2>
+
+    <select id="avaliacao">
+        <option value="1">1 estrela</option>
+        <option value="2">2 estrelas</option>
+        <option value="3">3 estrelas</option>
+        <option value="4">4 estrelas</option>
+        <option value="5">5 estrelas</option>
+    </select>
+
+    <br><br>
+
+    Média atual: <span id="qtd_e">0 estrelas</span><br>
+    Número de avaliações: <span id="qtd_a">0</span>
+
+    <br><br>
+
+    <button onclick="avaliar()">Confirmar avaliação</button>
+
+</body>
+
+</html>
+
+<script>
+
+    var total = 0, qtda = 0, media = 0;
+
+    function avaliar(){
+
+        qtda = qtda + 1;
+
+        total = total + Number(avaliacao.value);
+
+        media = total / qtda;
+
+        qtd_e.innerHTML = `${media.toFixed(0)} estrelas`;
+        qtd_a.innerHTML = `${qtda}`;
+
+    }
+
+</script>

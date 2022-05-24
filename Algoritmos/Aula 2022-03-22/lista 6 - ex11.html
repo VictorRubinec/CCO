@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista 6 - ex11</title>
+</head>
+
+<body>
+
+    Digite seu saldo bancário:
+    <input id="saldo">
+
+    <br><br>
+
+    <button onclick="verificar()">Verificar finanças</button>
+
+    <br><br>
+
+    <span id="span_resul"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function verificar() {
+
+        if (saldo.value == 0) {
+
+            span_resul.innerHTML = `Conta zerada`;
+
+        }
+
+        if (saldo.value < 0) {
+
+            span_resul.innerHTML = `<span style="color:red">Está devendo!</span>`;
+
+        }
+
+        if (saldo.value > 0) {
+
+            span_resul.innerHTML = `<span style="color:blue">Saldo positivo! :D</span>`;
+
+        }
+    }
+
+</script>

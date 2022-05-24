@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-be">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 8 - ex10</title>
+</head>
+
+<body>
+
+    Digite os valores abaixo:
+
+    <br>
+
+    <input type="text" id="inp_usuario" placeholder="Usuario">
+    <input type="text" id="inp_nome" placeholder="Nome">
+    <input type="text" id="inp_saldo" placeholder="Saldo">
+
+    <br><br>
+
+    <button onclick="f_vefificar()">Verificar conta</button>
+
+    <br><br>
+
+    <div id="div_mens"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var v_saldo = inp_saldo.value;
+
+    function f_vefificar() {
+
+        if (inp_saldo.value < 0) {
+
+            div_mens.innerHTML = `Com o saldo de R$${inp_saldo.value} o cliente ${inp_nome.value} está com saldo devedor`;
+        } else {
+
+            if (inp_saldo.value <= 2000) {
+
+                div_mens.innerHTML = `Com o saldo de R$${inp_saldo.value} o cliente ${inp_nome.value} está com saldo NORMAL`;
+            } else {
+
+                if (inp_saldo.value <= 5000) {
+
+                    div_mens.innerHTML = `Com o saldo de R$${inp_saldo.value} o cliente ${inp_nome.value} está com saldo ACIMA DA MÉDIA`;
+                } else {
+
+                    div_mens.innerHTML = `Com o saldo de R$${inp_saldo.value} o cliente ${inp_nome.value} está com saldo TEM PERFIL DE INVESTIDOR`;
+                }
+            }
+        }
+
+    }
+</script>

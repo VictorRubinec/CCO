@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 13 - ex1</title>
+</head>
+
+<body>
+
+    <h1>Divisibilidade</h1>
+
+    Digite um número: <br>
+    <input id="ipt_numero">
+
+    <br><br>
+
+    <button onclick="verificar()">É divisível por 7?</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function verificar(){
+
+        var v_numero = Number(ipt_numero.value),
+            v_resto = (v_numero % 7) == 0;
+
+        if (v_resto){
+
+            alert('Sim, ele é divisível');
+        } else{
+
+            alert('Não, ele não é divisível');
+        }
+    }
+
+</script>

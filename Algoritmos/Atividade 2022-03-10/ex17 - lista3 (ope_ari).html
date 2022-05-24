@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex17 - lista3 (ope_ari)</title>
+</head>
+
+<h1>Progressão Geométrica</h1>
+
+Digite os valores abaixo: 
+<br>
+
+<input id="termo_1" placeholder="1° termo">
+<input id="razao" placeholder="razão">
+<input id="termo_2" placeholder="2° termo">
+<br><br>
+<button onclick="calcular()">Calcular PG</button>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+
+        alert(`O ${termo_2.value}º termo dessa PG será ${termo_1.value * (razao.value ** (termo_2.value - 1))}`);
+
+    }
+
+</script>

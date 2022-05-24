@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 16 - ex2</title>
+</head>
+
+<body>
+
+    Insira um Destino de Viagem:
+    <input id="ipt_destino">
+    <button onclick="adicionar()">Adicionar</button>
+
+    <br><br>
+
+    <button onclick="primeira()">Primeira Viagem</button>
+    <button onclick="terceira()">Terceira Viagem</button>
+    <button onclick="ultima()">Última Viagem</button>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var vet_destino = [];
+
+    function adicionar() {
+
+        if (ipt_destino.value == null || ipt_destino.value == '') {
+
+            alert('Campo vazio');
+        } else {
+
+            div_resul.innerHTML = '';
+
+            vet_destino.push(ipt_destino.value);
+
+            ipt_destino.value = '';
+
+            ipt_destino.focus();
+
+            alert('Destino cadastrado!');
+        }
+    }
+
+    function primeira() {
+        if (vet_destino.length > 0) {
+
+            div_resul.innerHTML += `Primeira: <b>${vet_destino[0]}</b> <br>`;
+        } else {
+
+            div_resul.innerHTML += `ainda não viajou <br>`;
+        }
+    }
+
+    function terceira() {
+
+        if (vet_destino.length >= 3) {
+
+            div_resul.innerHTML += `Terceira: <b>${vet_destino[2]}</b> <br>`;
+        } else {
+
+            div_resul.innerHTML += `ainda não fez a 3ª viagem <br>`;
+        }
+    }
+
+    function ultima() {
+
+        if (vet_destino.length > 0) {
+
+            div_resul.innerHTML += `Última: <b>${vet_destino[vet_destino.length - 1]}</b> <br>`;
+        } else {
+
+            div_resul.innerHTML += `ainda não viajou <br>`;
+        }
+    }
+
+</script>

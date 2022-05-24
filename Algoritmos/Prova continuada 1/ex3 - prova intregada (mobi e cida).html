@@ -1,0 +1,65 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobilidade & Cidadania</title>
+</head>
+
+<body>
+
+    <h1>Mobilidade & Cidadania</h1>
+
+    Escolha um dos veículos:
+
+    <br>
+    <br>
+
+    <button onclick="carro()">Carro</button>
+    <button onclick="moto()">Moto</button>
+    <button onclick="bike()">Bike</button>
+
+    <br>
+    <br>
+
+    <img src="" id="veiculos" height="150px" style="display: none;">
+
+    <br>
+
+    <div id="id_mens"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function carro() {
+
+        veiculos.src = "https://i0.statig.com.br/bancodeimagens/ba/6g/yc/ba6gyc1bgrftit0k62lm83jjj.jpg";
+        veiculos.style.display = "block";
+
+        id_mens.innerHTML = `<span style="background-color: blue"> <i>Carro</i> é o meio mais seguro, mas é o mais caro </span>`;
+
+    }
+
+    function moto() {
+
+        veiculos.src = "https://www.honda.com.br/motos/sites/hda/files/styles/product_860x550/public/2021-07/EixosMotos.psd_0000s_0000s_0001_CG-Fan-Azul-Perolizado.png?itok=4kXre_aQ";
+        veiculos.style.display = "block";
+
+        id_mens.innerHTML = `<span style="background-color: red; color: white"> O meio mais rápido é a <i>Moto</i>, mas é o mais perigoso </span>`;
+
+    }
+
+    function bike() {
+
+        veiculos.src = "https://a-static.mlcdn.com.br/1500x1500/bicicleta-aro-29-mountain-bike-south-bike-legend-freio-a-disco-21-marchas/magazineluiza/225448200/b62657cc0c8b59162fd0cb1b8ee09bca.jpg";
+        veiculos.style.display = "block";
+
+        id_mens.innerHTML = `<b style="background-color: yellow; color: blue"> A <i>Bike</i> é o meio mais econômico mas é o mais cansativo </b>`;
+
+    }
+
+</script>

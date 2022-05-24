@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 8 - ex2</title>
+</head>
+
+<body>
+
+    Digite a renda mensal de sua família:
+    <input type="text" id="inp_renda">
+
+    <br><br>
+
+    <button onclick="f_analizar()">Analisar Renda</button>
+
+    <br><br>
+
+    <div id="div_mens"></div>
+</body>
+
+</html>
+
+<script>
+
+    var v_renda = inp_renda.value;
+
+    function f_analizar() {
+
+        if (v_renda <= 250) {
+
+            div_mens.innerHTML = `Classe E`;
+        } else {
+            if (v_renda <= 900) {
+
+                div_mens.innerHTML = `Classe E`;
+            } else {
+                if (v_renda <= 2500) {
+
+                    div_mens.innerHTML = `Classe E`;
+                } else {
+                    if (v_renda <= 9500) {
+
+                        div_mens.innerHTML = `Classe E`;
+                    } else {
+
+                        div_mens.innerHTML = `nada`;
+                    }
+                }
+            }
+        }
+    }
+
+</script>

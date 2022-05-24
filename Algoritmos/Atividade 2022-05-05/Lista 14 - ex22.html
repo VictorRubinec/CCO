@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 14 - ex21</title>
+</head>
+
+<body>
+
+    <button onclick="verificar()">Curto 3 e 5!</button>
+
+    <div id="div_resul"></div>
+</body>
+
+</html>
+
+<script>
+    var v_numero = 100,
+        val_numero = 0;
+
+    function verificar() {
+
+        while (v_numero > val_numero) {
+
+            val_numero++;
+
+            var bol_div3 = val_numero % 3 == 0,
+                bol_div5 = val_numero % 5 == 0,
+                bol_div3e5 = bol_div3 && bol_div5;
+
+            if (bol_div3e5) {
+
+                div_resul.innerHTML += `<b> É TRI! É PENTA! </b> <br>`;
+            } else if (bol_div3) {
+
+                div_resul.innerHTML += `<b> É TRI! </b> <br>`;
+            } else if (bol_div5) {
+
+                div_resul.innerHTML += `<b> É PENTA! </b> <br>`;
+            } else {
+
+                div_resul.innerHTML += `${val_numero} <br>`;
+            }
+        }
+    }
+</script>

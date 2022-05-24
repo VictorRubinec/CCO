@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex8 - lista 5 (ad)</title>
+</head>
+
+<body>
+
+    <h2>Qual hobby você quer participar</h2>
+
+    <select onchange="mudar()" id="hobby">
+        <option value="https://cdn.shopify.com/s/files/1/1061/1924/files/Dancer_With_Red_Dress_Emoji_400x400.png">Dança</option>
+        <option value="https://cdn.shopify.com/s/files/1/1061/1924/files/Virus_Emoji_400x400.png">Vídeo game</option>
+        <option value="https://cdn.shopify.com/s/files/1/1061/1924/files/Man_Bowing_Emoji_400x400.png">Assistir tv/streaming</option>
+        <option value="https://cdn.shopify.com/s/files/1/1061/1924/files/Sign_of_the_Horns_Emoji_400x400.png">Ouvir Rock</option>
+    </select>
+
+    <br><br>
+
+    <img src="" id="imagem" width="50px">
+
+</body>
+
+</html>
+
+<script>
+
+    var tamanho = 50;
+
+    function mudar(){
+        imagem.src = hobby.value;
+
+        imagem.style.width = `${tamanho}px`;
+
+        tamanho = tamanho + 10;
+    }
+
+</script>

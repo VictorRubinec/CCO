@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exAula</title>
+</head>
+
+<body>
+
+    <h2>Fases da vida</h2>
+
+    Digite sua idade:
+    <input id="inp_idade">
+
+    <br><br>
+
+    <button onclick="f_verificar()">Verificar</button>
+
+    <div id="div_resul" style="display: none;">
+        <p>
+            Já passou pela infância: <span id="span_infancia"></span> <br>
+            Já passou pela adolecência: <span id="span_adolecencia"></span> <br>
+            Já é um idoso: <span id="span_idoso"></span> <br>
+            <br>
+            Total de Pontos: <span id="span_pontos"></span>
+        </p>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function f_verificar() {
+
+        var v_infancia = inp_idade.value > 12,
+            v_adolecencia = inp_idade.value > 18,
+            v_idoso = inp_idade.value >= 65,
+            v_check = inp_idade.value > 0,
+            v_pontos = 0;
+
+        if (v_check) {
+
+            div_resul.style.display = 'block';
+
+            span_infancia.innerHTML = v_infancia;
+            span_adolecencia.innerHTML = v_adolecencia;
+            span_idoso.innerHTML = v_idoso;
+
+            if (v_infancia) {
+
+                v_pontos = v_pontos + 10;
+
+                if (v_adolecencia) {
+
+                    v_pontos = v_pontos + 20;
+
+                    if (v_idoso) {
+
+                        v_pontos = v_pontos + 80;
+                    }
+                }
+            }
+
+            span_pontos.innerHTML = v_pontos;
+        }
+
+    }
+
+</script>

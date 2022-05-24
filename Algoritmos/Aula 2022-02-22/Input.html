@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+</head>
+
+<style>
+    #botao {
+        background-color: darkblue;
+        padding: 20px;
+        padding-bottom: 6px;
+        padding-top: 6px;
+        cursor: pointer;
+        border: none;
+        border-radius: 3px;
+        font-size: 15px;
+        color: white;
+    }
+
+    #botao:hover {
+        background-color: blue;
+    }
+
+    #botao:active {
+        background-color: aquamarine;
+        color: black;
+    }
+</style>
+
+<body>
+
+    Entre com o seu <b>primeiro nome: </b><input type="text" id="primeiro" placeholder="Primeiro Nome" autofocus>
+    <br>
+    Entre com o seu <b>ultimo nome: </b><input type="text" id="ultimo" placeholder="Último Nome">
+    <br>
+    <button onclick="incluir()" id="botao">Incluir</button>
+    <br>
+    <div id="div_mens">
+        <h1>Mini Cadastro de Nome:</h1>
+        Seu nome é: <br>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    function incluir() {
+        alert("Seu nome é: " + primeiro.value + " " + ultimo.value);
+
+        div_mens.innerHTML += primeiro.value + " " + ultimo.value + "<br>";
+
+        primeiro.value = "";
+        ultimo.value = "";
+    }
+
+</script>

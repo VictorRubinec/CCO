@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 14 - ex3 (usando for)</title>
+</head>
+
+<body>
+
+    Digite uma frase: <br>
+    <input id="ipt_frase">
+
+    <br><br>
+
+    <button onclick="dizer()">Diga algo sobre a quarentena</button>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function dizer(){
+
+        div_resul.innerHTML = '';
+
+        for(var v_contagem = 1; v_contagem <= 7; v_contagem++){
+
+            div_resul.innerHTML += `${v_contagem}. ${ipt_frase.value} <br>`;
+        }
+    }
+
+</script>

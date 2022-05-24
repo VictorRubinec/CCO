@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex11 - lista3 (ope_ari)</title>
+</head>
+
+<body>
+
+    Digite seu peso em quilos (kg):
+    <input id="peso" placeholder="Ex: 62">
+    <br>
+    Digite sua altura em metros (m):
+    <input id="altura" placeholder="Ex: 1.70 (use ponto)">
+    <br><br>
+    <button onclick="homem()">IMC Homem</button>
+    <button onclick="mulher()">IMC Mulher</button>
+    <br><br>
+    <span id="span_imc"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function homem(){
+        span_imc.innerHTML = `Seu IMC é de: ${peso.value / (altura.value * altura.value)}`;
+    }
+
+    function mulher(){
+        span_imc.innerHTML = `Seu IMC é de: ${(peso.value / (altura.value * altura.value)) * 0.9}`;
+    }
+
+</script>

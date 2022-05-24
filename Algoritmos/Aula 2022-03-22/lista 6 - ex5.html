@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista 6 - ex5</title>
+</head>
+
+<style>
+
+    body{
+        font-size: 20px;
+    }
+
+    input{
+        font-size: 20px;
+    }
+
+    button{
+        font-size: 20px;
+    }
+
+    table {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        font-size: 15px;
+        text-align: center;
+        background-color:lightgray;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    table th{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+</style>
+
+<body>
+
+    Digite a quantidade média de kWh por dia:
+    <input id="kwh_d">
+
+    <br><br>
+
+    <button onclick="calcular()">Calcular conta de luz</button>
+
+    <table>
+        <tr>
+            <th>kWh/dia</th>
+            <th>kWh/mês</th>
+            <th>Valor Conta</th>
+        </tr>
+        <tr>
+            <td>2.3</td>
+            <td>69</td>
+            <td>R$ 52,78</td>
+        </tr>
+        <tr>
+            <td>3.2</td>
+            <td>96</td>
+            <td>R$ 73,44</td>
+        </tr>
+        <tr>
+            <td>3.7</td>
+            <td>111</td>
+            <td>R$ 94,35</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
+
+<script>
+
+    var kwh_m = 0, valor = 0;
+
+    function calcular() {
+
+        kwh_m = kwh_d.value * 30;
+
+        valor = kwh_m * 0.85;
+
+        if (kwh_m < 100) {
+
+            valor = valor * 0.9;
+
+        }
+
+        alert(`O valor da conta de luz é de R$${valor.toFixed(2)} com um consumo de ${kwh_m} kWh/mês`);
+
+    }
+
+</script>

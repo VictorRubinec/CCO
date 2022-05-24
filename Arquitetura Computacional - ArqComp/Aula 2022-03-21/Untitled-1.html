@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input onchange="gay()" id="tal">
+    <br>
+
+    <select onchange="gay()" id="tipos">
+        <option value="1">Binario</option>
+        
+        <option value="2">Decimal</option>
+
+        
+        <option value="3">Todos</option>
+    </select>
+    <span id="span_mens"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    function gay(){
+        if (tipos.value == 1){
+            span_mens.innerHTML = `${tal.value - 5}`;
+        }
+        
+        if (tipos.value == 2){
+            span_mens.innerHTML = `${tal.value * 5}`;
+        }
+        
+        if (tipos.value == 3){
+            span_mens.innerHTML = `binario: ${tal.value * 5}<br>
+                                    decimal ${tal.value - 5}`;
+        }
+    }
+
+</script>

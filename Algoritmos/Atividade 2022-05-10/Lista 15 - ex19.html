@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 15 - ex19</title>
+</head>
+
+<body>
+
+    Digite sua idade: <br>
+    <input onkeyup="idade()" id="ipt_idade">
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var v_idade = 0;
+
+    function idade() {
+
+        div_resul.innerHTML = ``;
+
+        v_idade = Number(ipt_idade.value);
+
+        for (var val_idade = 0; val_idade <= v_idade; val_idade++) {
+
+            div_resul.innerHTML += `${val_idade} anos `;
+
+            if (val_idade <= 4) {
+
+                div_resul.innerHTML += `(Primeira Infância)<br>`;
+            } else if (val_idade <= 6) {
+
+                div_resul.innerHTML += `(Pré-escolar)<br>`;
+            } else if (val_idade <= 10) {
+
+                div_resul.innerHTML += `(Segunda Infância)<br>`;
+            } else if (val_idade <= 18) {
+
+                div_resul.innerHTML += `(Adolescência)<br>`;
+            } else if (val_idade <= 50) {
+
+                div_resul.innerHTML += `(Adulto)<br>`;
+            } else if (val_idade <= 100) {
+
+                div_resul.innerHTML += `(Melhor idade)<br>`;
+            } else {
+
+                div_resul.innerHTML += `(Matusalém)<br>`;
+            }
+        }
+    }
+
+</script>

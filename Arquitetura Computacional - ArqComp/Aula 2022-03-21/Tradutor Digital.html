@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)file:///C:/Users/Marise%20Miranda/Downloads/Marises%20Machine.html -->
+<html lang="en">
+
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tradutor Digital</title>
+</head>
+
+<style>
+        body {
+                background-color: rgb(241, 241, 241);
+                font-size: 25px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                text-align: center;
+        }
+
+        #numero {
+                border: none;
+                background-color: lightgray;
+                border-radius: 5px;
+                padding: 10px;
+                font-size: 25px;
+        }
+
+        #tipos {
+                border: none;
+                background-color: lightgray;
+                border-radius: 5px;
+                padding: 10px;
+                font-size: 25px;
+        }
+
+        #div_resul {
+                text-align: left;
+                padding: 10px;
+                height: 110px;
+                width: 40%;
+                background-color: lightgray;
+                border-radius: 5px;
+        }
+
+        #ra {
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                font-size: 15px;
+                text-align: right;
+        }
+</style>
+
+<body>
+
+
+        <div>
+                <h2>Tradutor digital</h2>
+
+                <input onchange="converter()" id="numero" placeholder="Digite o decimal aqui...">
+
+                <select onchange="converter()" id="tipos">
+                        <option value="1">Octal</option>
+                        <option value="2">Hexadecimal</option>
+                        <option value="3">Binário</option>
+                        <option value="4">Todos</option>
+                </select>
+
+                <br><br>
+                <center>
+                        <div id="div_resul"></div>
+                </center>
+        </div>
+
+        <div id="ra">
+
+                Davi Guilherme Souza de Paula 02221042 <br>
+                Matheus Barizon Caus 02221023 <br>
+                Victor Zanin Rubinec 02221021
+
+        </div>
+</body>
+
+</html>
+<script>
+
+        function converter() {
+
+                var decimal = Number(numero.value);
+
+                let octal = decimal.toString(8);
+
+                let hexadecimal = decimal.toString(16);
+
+                let binaria = decimal.toString(2);
+
+                console.log(decimal);
+                console.log(octal);
+                console.log(hexadecimal);
+                console.log(binaria);
+
+                if (octal == 'NaN') {
+                        document.getElementById("div_resul").innerHTML = `Erro: Digite um número válido`;
+                }
+
+                else {
+
+                        if (tipos.value == 1) {
+                                document.getElementById("div_resul").innerHTML = ` ${octal}`;
+                        }
+                        if (tipos.value == 2) {
+                                document.getElementById("div_resul").innerHTML = ` ${hexadecimal}`;
+                        }
+                        if (tipos.value == 3) {
+                                document.getElementById("div_resul").innerHTML = ` ${binaria}`;
+                        }
+                        if (tipos.value == 4) {
+                                document.getElementById("div_resul").innerHTML = `Octal: ${octal}<br>
+                                                                                Hexadecimal: ${hexadecimal}<br>
+                                                                                Binário: ${binaria}`;
+                        }
+                }
+
+
+        }
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista 5 - ex1</title>
+</head>
+
+<body>
+
+    <h2>MERCADINHO BIG BOM</h2>
+
+    <select id="select_prod">
+        <option value="15.99">Desodorante Rexona</option>
+        <option value="89.99">Sobre Coxa 4kg Swift</option>
+        <option value="6.99">Chocolate Hershey's ao leite</option>
+        <option value="20.95">Balde roxo 5l</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="mercado()">Consultar Preço</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function mercado(){
+
+        var prod = select_prod.value;
+
+        alert(`Isso custa R$${prod}`);
+
+    }
+
+</script>

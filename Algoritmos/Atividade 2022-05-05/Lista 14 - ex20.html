@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 14 - ex20</title>
+</head>
+
+<body>
+
+    Quantos ônibus precisa pegar ? <br>
+    <input id="ipt_onibus"> <br>
+
+    Quantos trens precisa pegar ? <br>
+    <input id="ipt_trem"> <br>
+
+    Quantos metrôs precisa pegar ? <br>
+    <input id="ipt_metro">
+
+    <br> <br>
+
+    <button onclick="trajeto()">#Partiu Trajeto</button>
+
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var v_onibus = 0,
+        v_trem = 0,
+        v_metro = 0;
+
+    var val_onibus = 0,
+        val_trem = 0,
+        val_metro = 0;
+
+    function trajeto() {
+
+        v_onibus = Number(ipt_onibus.value);
+        v_trem = Number(ipt_trem.value);
+        v_metro = Number(ipt_metro.value);
+
+        val_onibus = 0;
+        val_trem = 0;
+        val_metro = 0;
+
+        while (v_onibus > val_onibus) {
+
+            val_onibus++;
+
+            div_resul.innerHTML += `<span style='color:red'>Pegando o ${val_onibus}º buzão</span> <br>`;
+        }
+
+        while (v_trem > val_trem) {
+
+            val_trem++;
+
+            div_resul.innerHTML += `<span style='color:green'>Pegando o ${val_trem}º trem</span> <br>`;
+        }
+
+        while (v_metro > val_metro) {
+
+            val_metro++;
+
+            div_resul.innerHTML += `<span style='color:blue'>Pegando o ${val_metro}º metrô</span> <br>`;
+        }
+
+    }
+
+</script>

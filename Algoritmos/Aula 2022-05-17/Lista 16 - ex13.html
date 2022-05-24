@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 16 - ex13</title>
+</head>
+
+<body>
+
+    Digite o resultado do jogo: <br>
+    <select id="sel_time">
+        <option value="" selected disabled>-- Selecione --</option>
+        <option value="Ganhou">Vitória</option>
+        <option value="Empatou">Empate</option>
+        <option value="Perdeu">Derrota</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="cadastrar()">Registrar Jogo</button>
+
+    <br><br>
+
+    Indique qual jogo que saber resultado: <br>
+    <input id="ipt_consulta" onkeyup="consultar()">
+
+    <div id="div_resul"></div>
+    <div id="div_consu"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var vet_jogo = [],
+        v_consu = 0,
+        v_apro = 0,
+        v_pontos = 0,
+        v_ganhou = 0,
+        v_empatou = 0,
+        v_perdeu = 0;
+
+    function cadastrar() {
+
+        var val_ganhou = sel_time.value == 'Ganhou',
+            val_empatou = sel_time.value == 'Empatou',
+            val_perdeu = sel_time.value == 'Perdeu',
+            val_vazio = sel_time.value == '';
+
+        if (val_vazio) {
+
+            alert('Selecione uma opção');
+        } else {
+
+            vet_jogo.push(sel_time.value);
+
+            if (val_ganhou) {
+
+                v_pontos += 3;
+                v_ganhou++;
+            } else if (val_empatou) {
+
+                v_pontos += 1;
+                v_empatou++;
+            } else if (val_perdeu) {
+
+                v_perdeu++;
+            }
+
+            v_apro = v_pontos / (vet_jogo.length * 0.03);
+
+            div_resul.innerHTML =
+                `O time teve: ${v_ganhou} vitórias, ${v_empatou} empates, ${v_perdeu} derrotas <br>
+            Pontuação total: ${v_pontos} pontos <br>
+            Aproveitamento: ${v_apro.toFixed(0)}%
+            `;
+
+            sel_time.value = '';
+            sel_time.focus();
+        }
+    }
+
+    function consultar() {
+
+        v_consu = Number(ipt_consulta.value);
+
+        if (v_consu == '') {
+
+            div_consu.innerHTML = ``;
+        } else if (v_consu <= 0) {
+
+            div_consu.innerHTML = `Digite um valor acima de 0`;
+        } else if (vet_jogo.length < v_consu) {
+
+            div_consu.innerHTML = `Não foi cadastrado um ${v_consu}º jogo`;
+        } else {
+
+            div_consu.innerHTML = `No ${v_consu}º jogo, o time ${vet_jogo[v_consu - 1]}`;
+        }
+    }
+
+</script>

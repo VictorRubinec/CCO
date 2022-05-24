@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+</head>
+
+<body>
+
+    Digite o 1° valor: <br>
+    <input id="ipt_numero1">
+
+    <br>
+
+    Digite o 2° valor: (Último) <br>
+    <input id="ipt_numero2">
+
+    <br><br>
+
+    <button onclick="analizar()">Analizar</button>
+
+    <div id="div_resul">
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var v_num1 = 0,
+        v_num2 = 0,
+        v_primos = 0,
+        val_num1 = 0,
+        val_primo = 0;
+
+    function analizar() {
+
+        div_resul.innerHTML = '';
+
+        v_num1 = Number(ipt_numero1.value);
+        v_num2 = Number(ipt_numero2.value);
+
+        if (v_num1 < 0 || v_num2 < 0) {
+
+            alert('Digite valores maiores que 0');
+        } else if (v_num1 >= v_num2) {
+
+            alert('O primeiro valor precisa ser menor que o segundo');
+        } else {
+
+            val_num1 = v_num1;
+            v_primos = 0;
+
+            while (v_num2 >= val_num1) {
+
+                val_primo = 0;
+
+                if (val_num1 == 1) {
+
+                    div_resul.innerHTML += `O número <b>${val_num1}</b> não conta como primo. <br>`;
+                }
+                if (val_num1 % 2 == 0) {
+
+                    div_resul.innerHTML += `O número <b>${val_num1}</b> é <u>par</u>. `;
+                    val_primo = 1;
+                }
+                if (val_num1 % 3 == 0) {
+
+                    div_resul.innerHTML += `O número <b>${val_num1}</b> é divisível por <u>3</u>. `;
+                    val_primo = 1;
+                }
+                if (val_num1 % 5 == 0) {
+
+                    div_resul.innerHTML += `O número <b>${val_num1}</b> é divisível por <u>5</u>. `;
+                    val_primo = 1;
+                }
+                if (val_num1 % 7 == 0) {
+
+                    div_resul.innerHTML += `O número <b>${val_num1}</b> é divisível por <u>7</u>. `;
+                    val_primo = 1;
+                }
+                if (val_num1 % 11 == 0) {
+
+                    div_resul.innerHTML += `O número <b>${val_num1}</b> é divisível por <u>11</u>. `;
+                    val_primo = 1;
+                }
+                if (val_num1 % 13 == 0) {
+
+                    div_resul.innerHTML += `O número <b>${val_num1}</b> é divisível por <u>13</u>. `;
+                    val_primo = 1;
+                }
+
+
+                
+                if (val_primo == 0) {
+
+                    div_resul.innerHTML += `O número <b>${val_num1}</b> não é divisível pelos principais números primos <br>`;
+                } else {
+
+                    div_resul.innerHTML += `<br>`;
+                    v_primos++;
+                }
+
+                val_num1++;
+            }
+
+            div_resul.innerHTML +=
+                `<br> <br> O intervalo de <b>${v_num1}</b> a <b>${v_num2}</b> tem <b>${(v_num2 - v_num1) + 1}</b> números, sendo que <b>${v_primos}</b> números são divisíveis por algum número primo`;
+        }
+    }
+</script>

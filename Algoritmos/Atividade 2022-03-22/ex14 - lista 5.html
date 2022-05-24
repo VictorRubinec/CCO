@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex14 - lista 5</title>
+</head>
+
+<body>
+
+    <h2>Pizzaria da boa</h2>
+
+    Sabor da pizza: <br>
+    <select id="sabor" autofocus>
+        <option value="23.00">R$ 23.00 - Muçarela</option>
+        <option value="24.00">R$ 24.00 - Calabresa</option>
+        <option value="26.00">R$ 26.00 - Atum</option>
+        <option value="30.00">R$ 30.00 - Portuguesa</option>
+    </select>
+
+    <br><br>
+
+    Incrementos da pizza: <br>
+    <select id="inc1" autofocus>
+        <option value="2.00">R$ 2.00 - Queijo</option>
+        <option value="2.50">R$ 2.50 - Presunto</option>
+        <option value="1.50">R$ 1.50 - Ovo</option>
+        <option value="4.00">R$ 4.00 - Palmito</option>
+        <option value="3.50">R$ 3.50 - Frango</option>
+        <option value="3.00">R$ 3.00 - Catupiry</option>
+    </select>
+    <br><br>
+    <select id="inc2" autofocus>
+        <option value="2.00">R$ 2.00 - Queijo</option>
+        <option value="2.50">R$ 2.50 - Presunto</option>
+        <option value="1.50">R$ 1.50 - Ovo</option>
+        <option value="4.00">R$ 4.00 - Palmito</option>
+        <option value="3.50">R$ 3.50 - Frango</option>
+        <option value="3.00">R$ 3.00 - Catupiry</option>
+    </select>
+    <br><br>
+    <select id="inc3" autofocus>
+        <option value="2.00">R$ 2.00 - Queijo</option>
+        <option value="2.50">R$ 2.50 - Presunto</option>
+        <option value="1.50">R$ 1.50 - Ovo</option>
+        <option value="4.00">R$ 4.00 - Palmito</option>
+        <option value="3.50">R$ 3.50 - Frango</option>
+        <option value="3.00">R$ 3.00 - Catupiry</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="calcular()">Calcular preço da pizza</button>
+
+    <br><br>
+
+    <span id="span_resul"></span>
+
+</body>
+
+</html>
+
+<script>
+
+    var total = 0;
+
+    function calcular() {
+
+        total = Number(sabor.value) + Number(inc1.value) + Number(inc2.value) + Number(inc3.value);
+
+        span_resul.innerHTML = `A pizza era R$ <b>${sabor.value}</b>, mas foi acrescido R$ ${inc1.value}, R$ ${inc2.value} e R$ ${inc3.value} e agora custará um total de <u>R$ </u><u style='color: red;'>${total.toFixed(2)}</u>`;
+    }
+
+</script>

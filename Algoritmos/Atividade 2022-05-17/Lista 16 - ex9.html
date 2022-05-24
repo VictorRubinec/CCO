@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 16 - ex9</title>
+</head>
+
+<body>
+
+    Inisira o nome do projeto: <br>
+    <input id="ipt_projeto">
+
+    <br><br>
+
+    <button onclick="cadastrar()">Registrar Projeto</button>
+    <button onclick="mostrar()">Mostrar Projetos</button>
+
+    <div id="div_mens"></div>
+    <div id="div_resul"></div>
+
+</body>
+
+</html>
+
+<script>
+    var vet_projeto = [],
+        v_nivel,
+        cont;
+
+    function cadastrar() {
+
+        if (ipt_projeto.value == '') {
+
+            alert('Campo vazio');
+        } else {
+
+            vet_projeto.push(ipt_projeto.value);
+
+            if (vet_projeto.length <= 4) {
+
+                v_nivel = `Júnior`;
+            } else if (vet_projeto.length <= 12) {
+
+                v_nivel = `Pleno desde o projeto ${vet_projeto[4]}`;
+            } else {
+
+                v_nivel = `Sênior desde o projeto ${vet_projeto[12]}`;
+            }
+
+            div_mens.innerHTML =
+                `Você já fez <b>${vet_projeto.length}</b> projetos. Por isso você é um profissional <b>${v_nivel}</b>`;
+
+            ipt_projeto.value = '';
+        }
+
+        ipt_projeto.focus();
+    }
+
+    function mostrar() {
+
+        for (cont = vet_projeto.length; cont > 0; cont--) {
+
+            div_resul.innerHTML += `${cont}° ${vet_projeto[cont-1]} <br>`;
+        }
+    }
+</script>
